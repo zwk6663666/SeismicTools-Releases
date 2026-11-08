@@ -2,6 +2,8 @@
 
 面向结构抗震研究的桌面工具（PySide6 + Matplotlib），涵盖动力分析与拟静力试验数据处理。
 
+![Seismic Tools 主界面](docs/images/03_wave_spectrum.png)
+
 ## 功能
 
 | 分组 | 功能 |
