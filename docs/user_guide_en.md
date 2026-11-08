@@ -72,7 +72,7 @@ The language button at the bottom of the sidebar switches the interface between 
 - Every data table can be **exported by right-clicking** (CSV/TXT/custom suffix); format options are linked to the global settings.
 - Pages that handle several curves provide an **Export all** button to export the tables and figures of all curves at once.
 - Figures use Times New Roman; axis titles and legends are larger than tick labels.
-- Formulas and symbols in the interface and in figures (such as $\sigma_{\max}$, $k_h$ and $\bar{h}$) are typeset in LaTeX, so subscripts, Greek letters and fractions stay readable. Units in table headers and axis titles (such as $\mathrm{kN\cdot m/rad}$) are typeset in upright LaTeX as well. Table headers and text that you copy or export use the plain-text form, for example σmax.
+- Formulas and symbols in the interface and in figures (such as $`\sigma_{\max}`$, $`k_h`$ and $`\bar{h}`$) are typeset in LaTeX, so subscripts, Greek letters and fractions stay readable. Units in table headers and axis titles (such as $`\mathrm{kN\cdot m/rad}`$) are typeset in upright LaTeX as well. Table headers and text that you copy or export use the plain-text form, for example σmax.
 
 ---
 
@@ -160,16 +160,16 @@ Click **Import** below the list to open the import settings, then click **OK** a
 | Scaling factor | Acceleration scale factor applied after reading | 1.00 |
 | Time column | Column of time (starting from 1) | 1 |
 | Accel column | Column of acceleration (starting from 1) | 2 |
-| Time step | Time step $\Delta t$ (s) of single-column acceleration | 0.02 |
+| Time step | Time step $`\Delta t`$ (s) of single-column acceleration | 0.02 |
 | Unit | Acceleration unit in the file: g, m/s^2, cm/s^2, mm/s^2 | g |
 
-Accelerations are converted to g after reading ($g = 9.80665\ \mathrm{m/s^2}$):
+Accelerations are converted to g after reading ($`g = 9.80665\ \mathrm{m/s^2}`$):
 
-$$
+```math
 a = k \cdot c_{\mathrm{unit}} \cdot a_{\mathrm{file}}
-$$
+```
 
-where $a_{\mathrm{file}}$ is the value in the file, $k$ is the scaling factor and $c_{\mathrm{unit}}$ is the unit factor: $1$ for g, $1/9.80665$ for m/s^2, $1/980.665$ for cm/s^2 and $1/9806.65$ for mm/s^2.
+where $`a_{\mathrm{file}}`$ is the value in the file, $`k`$ is the scaling factor and $`c_{\mathrm{unit}}`$ is the unit factor: $`1`$ for g, $`1/9.80665`$ for m/s^2, $`1/980.665`$ for cm/s^2 and $`1/9806.65`$ for mm/s^2.
 
 #### File Examples
 
@@ -245,8 +245,8 @@ The installer copies the sample data to `Documents\SeismicTools\Import Data\samp
 | `hysteresis_waiting_sample.csv` | Test Curve Processing | The curve above with waiting segments added: a rest before the test, a stop at zero displacement at the end of every cycle, and random load holds at positive or negative peaks of some cycles; the waits last about 180–800 points and all differ, with exponential force relaxation; 36 559 points and 42 waiting segments |
 | `vertical_force_displacement_sample.csv` | Hysteresis Correction (Source: Force-displacement) | Vertical force–displacement curve with the header `Displacement (mm),Vertical force (kN)`, 5 734 points; every third point of the hysteresis curve above with displacement rounded to one decimal, so the number of points and the displacement precision differ from the horizontal curve; vertical force about 500 kN |
 | `vertical_force_history_sample.csv` | Hysteresis Correction (Source: Time history) | Vertical force time history, one column with the header `Vertical force (kN)`, 4 000 points, about 500 kN |
-| `earthquake_wave_sample.csv` | Ground motion pages | Synthetic ground motion, Time and accel type (comma separated, no header, unit g), 4 000 points, $\Delta t = 0.01$ s, duration 40 s, PGA 0.30 g, broadband (a medium-stiff site) |
-| `earthquake_wave_soft_site.AT2` | Ground motion pages | Synthetic ground motion, PEER type (unit g), 2 500 points, $\Delta t = 0.02$ s, duration 50 s, PGA 0.18 g, rich in long-period content (a soft site) |
+| `earthquake_wave_sample.csv` | Ground motion pages | Synthetic ground motion, Time and accel type (comma separated, no header, unit g), 4 000 points, $`\Delta t = 0.01`$ s, duration 40 s, PGA 0.30 g, broadband (a medium-stiff site) |
+| `earthquake_wave_soft_site.AT2` | Ground motion pages | Synthetic ground motion, PEER type (unit g), 2 500 points, $`\Delta t = 0.02`$ s, duration 50 s, PGA 0.18 g, rich in long-period content (a soft site) |
 
 Hysteresis files with a header are fine because leading non-numeric lines are skipped automatically; ground motion files need First line to skip a header, so the two ground motion samples have no header and can be imported with the default settings.
 
@@ -313,11 +313,11 @@ The five input boxes of Intermediate Parameter show different symbols depending 
 
 | Position | GB 50111 | JTG/T 2231-01 | GB 50011 |
 | --- | --- | --- | --- |
-| Left column, row 1 | — (not used) | $C_i$ seismic importance factor | $\gamma$ decay exponent of the curve |
-| Left column, row 2 | — (not used) | $C_d$ damping adjustment factor | $\eta_1$ slope adjustment factor of the linear descending segment |
-| Left column, row 3 | — (not used) | $C_s$ site factor | $\eta_2$ damping adjustment factor |
-| Right column, row 1 | $\alpha$ basic horizontal seismic acceleration (g) | $A$ design peak ground acceleration (g) | $\alpha_{\max}$ maximum seismic influence coefficient ($\alpha_{v\max}$ for vertical) |
-| Right column, row 2 | $T_g$ characteristic period (s) | $T_g$ characteristic period (s) | $T_g$ characteristic period (s) |
+| Left column, row 1 | — (not used) | $`C_i`$ seismic importance factor | $`\gamma`$ decay exponent of the curve |
+| Left column, row 2 | — (not used) | $`C_d`$ damping adjustment factor | $`\eta_1`$ slope adjustment factor of the linear descending segment |
+| Left column, row 3 | — (not used) | $`C_s`$ site factor | $`\eta_2`$ damping adjustment factor |
+| Right column, row 1 | $`\alpha`$ basic horizontal seismic acceleration (g) | $`A`$ design peak ground acceleration (g) | $`\alpha_{\max}`$ maximum seismic influence coefficient ($`\alpha_{v\max}`$ for vertical) |
+| Right column, row 2 | $`T_g`$ characteristic period (s) | $`T_g`$ characteristic period (s) | $`T_g`$ characteristic period (s) |
 
 ### 4.4 Code Parameter Window
 
@@ -329,71 +329,71 @@ Click the code information card in the top bar to open the code parameter window
 
 #### GB 50111-2006 (Code for Seismic Design of Railway Engineering)
 
-$$
+```math
 S(T) = \lambda \cdot \alpha \cdot \beta(T)
-$$
+```
 
-$$
+```math
 \beta(T) =
 \begin{cases}
-1.0 + 12.5T, & 0 \le T < 0.1\ \mathrm{s} \\
-2.25, & 0.1\ \mathrm{s} \le T < T_g \\
-2.25 \dfrac{T_g}{T}, & T_g \le T < 5T_g \\
-0.45, & T \ge 5T_g
+1.0 + 12.5T, & 0 \le T < 0.1\ \mathrm{s}
+\\ 2.25, & 0.1\ \mathrm{s} \le T < T_g
+\\ 2.25 \dfrac{T_g}{T}, & T_g \le T < 5T_g
+\\ 0.45, & T \ge 5T_g
 \end{cases}
-$$
+```
 
-where $\lambda$ is Factors, $\alpha$ is the basic horizontal seismic acceleration, $T_g$ is the characteristic period and $\beta$ is the dynamic amplification factor (code figure 7.2.3). The code specifies that the $\beta$ curve applies to structures with natural periods below 2 s and a damping ratio of 0.05.
+where $`\lambda`$ is Factors, $`\alpha`$ is the basic horizontal seismic acceleration, $`T_g`$ is the characteristic period and $`\beta`$ is the dynamic amplification factor (code figure 7.2.3). The code specifies that the $`\beta`$ curve applies to structures with natural periods below 2 s and a damping ratio of 0.05.
 
 #### JTG/T 2231-01-2020 (Specifications for Seismic Design of Highway Bridges)
 
-$$
+```math
 S_{\max} = 2.5 C_i C_s C_d A
-$$
+```
 
-$$
+```math
 S(T) =
 \begin{cases}
-\lambda S_{\max} \left( 0.4 + 0.6 \dfrac{T}{T_0} \right), & 0 \le T \le T_0 \\
-\lambda S_{\max}, & T_0 < T \le T_g \\
-\lambda S_{\max} \dfrac{T_g}{T}, & T > T_g
+\lambda S_{\max} \left( 0.4 + 0.6 \dfrac{T}{T_0} \right), & 0 \le T \le T_0
+\\ \lambda S_{\max}, & T_0 < T \le T_g
+\\ \lambda S_{\max} \dfrac{T_g}{T}, & T > T_g
 \end{cases}
 \qquad T_0 = 0.1\ \mathrm{s}
-$$
+```
 
-$$
+```math
 C_d = 1 + \frac{0.05 - \xi}{0.08 + 1.65\xi} \ge 0.55
-$$
+```
 
-where $C_i$ is the seismic importance factor, $C_s$ the site factor, $C_d$ the damping adjustment factor, $A$ the design peak ground acceleration and $\xi$ the damping ratio. For the vertical direction, $C_s$ and $T_g$ take the vertical site factor and the vertical characteristic period.
+where $`C_i`$ is the seismic importance factor, $`C_s`$ the site factor, $`C_d`$ the damping adjustment factor, $`A`$ the design peak ground acceleration and $`\xi`$ the damping ratio. For the vertical direction, $`C_s`$ and $`T_g`$ take the vertical site factor and the vertical characteristic period.
 
 #### GB 50011-2010 (Code for Seismic Design of Buildings, 2016 edition)
 
 Seismic influence coefficient curve (clause 5.1.5, figure 5.1.5):
 
-$$
+```math
 \alpha(T) =
 \begin{cases}
-\lambda \left[ 0.45 + 10 (\eta_2 - 0.45) T \right] \alpha_{\max}, & 0 \le T < 0.1\ \mathrm{s} \\
-\lambda \eta_2 \alpha_{\max}, & 0.1\ \mathrm{s} \le T \le T_g \\
-\lambda \left( \dfrac{T_g}{T} \right)^{\gamma} \eta_2 \alpha_{\max}, & T_g < T \le 5T_g \\
-\lambda \left[ \eta_2 0.2^{\gamma} - \eta_1 (T - 5T_g) \right] \alpha_{\max}, & 5T_g < T \le 6.0\ \mathrm{s}
+\lambda \left[ 0.45 + 10 (\eta_2 - 0.45) T \right] \alpha_{\max}, & 0 \le T < 0.1\ \mathrm{s}
+\\ \lambda \eta_2 \alpha_{\max}, & 0.1\ \mathrm{s} \le T \le T_g
+\\ \lambda \left( \dfrac{T_g}{T} \right)^{\gamma} \eta_2 \alpha_{\max}, & T_g < T \le 5T_g
+\\ \lambda \left[ \eta_2 0.2^{\gamma} - \eta_1 (T - 5T_g) \right] \alpha_{\max}, & 5T_g < T \le 6.0\ \mathrm{s}
 \end{cases}
-$$
+```
 
-The shape parameters depend on the damping ratio $\zeta$ (equations 5.1.5-1 to 5.1.5-3); for a damping ratio of 0.05, $\gamma = 0.9$, $\eta_1 = 0.02$ and $\eta_2 = 1.0$:
+The shape parameters depend on the damping ratio $`\zeta`$ (equations 5.1.5-1 to 5.1.5-3); for a damping ratio of 0.05, $`\gamma = 0.9`$, $`\eta_1 = 0.02`$ and $`\eta_2 = 1.0`$:
 
-$$
+```math
 \gamma = 0.9 + \frac{0.05 - \zeta}{0.3 + 6\zeta}, \qquad
 \eta_1 = 0.02 + \frac{0.05 - \zeta}{4 + 32\zeta} \ge 0, \qquad
 \eta_2 = 1 + \frac{0.05 - \zeta}{0.08 + 1.6\zeta} \ge 0.55
-$$
+```
 
 Notes:
 
-- $\alpha_{\max}$ is taken from the tables in Section 4.6: frequent and rare earthquakes per code table 5.1.4-1, the design earthquake per clause 3.10.3.
-- $T_g$ depends on the design group and the site class (code table 5.1.4-2), plus 0.05 s for rare earthquakes.
-- For the vertical direction the vertical coefficient is 65% of the horizontal one, $\alpha_{v\max} = 0.65 \alpha_{\max}$, and the characteristic period uses design group 1 (clauses 5.3.1 and 5.3.4).
+- $`\alpha_{\max}`$ is taken from the tables in Section 4.6: frequent and rare earthquakes per code table 5.1.4-1, the design earthquake per clause 3.10.3.
+- $`T_g`$ depends on the design group and the site class (code table 5.1.4-2), plus 0.05 s for rare earthquakes.
+- For the vertical direction the vertical coefficient is 65% of the horizontal one, $`\alpha_{v\max} = 0.65 \alpha_{\max}`$, and the characteristic period uses design group 1 (clauses 5.3.1 and 5.3.4).
 - The code requires special study for buildings with periods above 6.0 s. When Time limit exceeds 6.0 s, the program extends the linear descending segment and keeps the value non-negative.
 
 ### 4.6 Built-in Parameter Tables
@@ -458,7 +458,7 @@ The program contains the following tables and fills in the intermediate paramete
 | III | Vertical | 0.7 | 0.7 | 0.7 | 0.8 | 0.8 | 0.8 |
 | IV | Vertical | 0.8 | 0.8 | 0.8 | 0.9 | 0.9 | 0.8 |
 
-#### GB 50011: Maximum Horizontal Seismic Influence Coefficient $\alpha_{\max}$
+#### GB 50011: Maximum Horizontal Seismic Influence Coefficient $`\alpha_{\max}`$
 
 | Earthquake level | VI (6 degrees) | VII (7 degrees 0.10g) | VII½ (7 degrees 0.15g) | VIII (8 degrees 0.20g) | VIII½ (8 degrees 0.30g) | IX (9 degrees) |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -468,7 +468,7 @@ The program contains the following tables and fills in the intermediate paramete
 
 Frequent and rare values follow code table 5.1.4-1, design values clause 3.10.3. Vertical values are 65% of the table values.
 
-#### GB 50011: Characteristic Period $T_g$ (s)
+#### GB 50011: Characteristic Period $`T_g`$ (s)
 
 | Design group | I0 | I1 | II | III | IV |
 | --- | --- | --- | --- | --- | --- |
@@ -515,29 +515,29 @@ Computes linear elastic single-degree-of-freedom response spectra of ground moti
 | Max period | Maximum period (s), 0.1–20 | 6.00 s |
 | Period interval | Period interval (s), 0.001–1 | 0.020 s |
 
-The periods are $0, \Delta T, 2\Delta T, \ldots, T_{\max}$, where $\Delta T$ is Period interval and $T_{\max}$ is Max period. After changing parameters the current record is recalculated automatically if it already has results; other records need **Calculate** again (batch export recalculates automatically with the current parameters).
+The periods are $`0, \Delta T, 2\Delta T, \ldots, T_{\max}`$, where $`\Delta T`$ is Period interval and $`T_{\max}`$ is Max period. After changing parameters the current record is recalculated automatically if it already has results; other records need **Calculate** again (batch export recalculates automatically with the current parameters).
 
 ### 5.3 Spectrum Types
 
 | Key | Name | Unit | Definition |
 | --- | --- | --- | --- |
-| SA | Spectral acceleration (absolute) | g | $\max \lvert \ddot u(t) + \ddot u_g(t) \rvert$ |
-| SV | Spectral velocity (relative) | cm/s | $\max \lvert \dot u(t) \rvert$ |
-| SD | Spectral displacement (relative) | cm | $\max \lvert u(t) \rvert$ |
-| PSA | Pseudo-spectral acceleration | g | $\omega^2 \cdot \mathrm{SD}$ |
-| PSV | Pseudo-spectral velocity | cm/s | $\omega \cdot \mathrm{SD}$ |
+| SA | Spectral acceleration (absolute) | g | $`\max \lvert \ddot u(t) + \ddot u_g(t) \rvert`$ |
+| SV | Spectral velocity (relative) | cm/s | $`\max \lvert \dot u(t) \rvert`$ |
+| SD | Spectral displacement (relative) | cm | $`\max \lvert u(t) \rvert`$ |
+| PSA | Pseudo-spectral acceleration | g | $`\omega^2 \cdot \mathrm{SD}`$ |
+| PSV | Pseudo-spectral velocity | cm/s | $`\omega \cdot \mathrm{SD}`$ |
 
-$u(t)$ is the displacement of the oscillator relative to the ground, $\ddot u_g(t)$ the ground acceleration and $\omega = 2\pi/T$. At $T = 0$ the oscillator is rigid: SA = PSA = PGA and the others are 0.
+$`u(t)`$ is the displacement of the oscillator relative to the ground, $`\ddot u_g(t)`$ the ground acceleration and $`\omega = 2\pi/T`$. At $`T = 0`$ the oscillator is rigid: SA = PSA = PGA and the others are 0.
 
 ### 5.4 Tripartite Spectrum
 
-The tripartite spectrum plots PSV against the period $T$ on log–log axes. Since
+The tripartite spectrum plots PSV against the period $`T`$ on log–log axes. Since
 
-$$
+```math
 \mathrm{PSV} = \frac{2\pi}{T} \mathrm{SD} = \frac{T}{2\pi} g \cdot \mathrm{PSA}
-$$
+```
 
-(SD in cm, PSA in g, $g = 980.665\ \mathrm{cm/s^2}$), two families of oblique lines are drawn: at constant SD, PSV is inversely proportional to $T$ (lines rising to the left); at constant PSA, PSV is proportional to $T$ (lines rising to the right).
+(SD in cm, PSA in g, $`g = 980.665\ \mathrm{cm/s^2}`$), two families of oblique lines are drawn: at constant SD, PSV is inversely proportional to $`T`$ (lines rising to the left); at constant PSA, PSV is proportional to $`T`$ (lines rising to the right).
 
 Reading the chart:
 
@@ -550,9 +550,9 @@ Reading the chart:
 
 The equation of motion of the oscillator under ground motion is
 
-$$
+```math
 \ddot u + 2\xi\omega \dot u + \omega^2 u = -\ddot u_g(t)
-$$
+```
 
 - The response is computed step by step with the exact solution for piecewise-linear excitation (Nigam & Jennings, 1969; Chopra, Dynamics of Structures, Section 5.2) for all periods and damping ratios at once. The method is exact for input varying linearly between samples and has no stability or period-elongation problems of numerical integration, so short periods are also accurate.
 - After the record ends, zeros are appended for the length of Max period so that the maximum response during free vibration is included (important for long periods).
@@ -594,11 +594,11 @@ Scales ground motions to a set of target peak ground accelerations (PGA), option
 
 ### 6.3 Calculation Method
 
-$$
+```math
 k = \frac{\mathrm{PGA_{target}}}{\max \lvert a(t) \rvert}, \qquad a'(t') = k \cdot a(t), \qquad t' = \lambda_t t
-$$
+```
 
-where $\mathrm{PGA_{target}}$ is the target peak acceleration, $k$ the scale factor and $\lambda_t$ the time factor.
+where $`\mathrm{PGA_{target}}`$ is the target peak acceleration, $`k`$ the scale factor and $`\lambda_t`$ the time factor.
 
 Records with a PGA of 0 cannot be scaled; the program shows a warning.
 
@@ -635,9 +635,9 @@ Computes 35 ground motion parameters of the records and compares them in a chart
 | Option | Description | Default |
 | --- | --- | --- |
 | Baseline correction | Least-squares polynomial baseline correction of acceleration before integrating velocity and displacement: None, Mean (order 0), Linear (order 1), Quadratic (order 2) | Linear |
-| EPA factor β | Spectral amplification factor for EPA, EPV and EPD, 1.0–5.0. 2.25 corresponds to $\beta_{\max}$ of GB 50011, 2.5 to ATC-3-06 | 2.25 |
-| C multiplier | Linear scale factor $C$ of the damage index, 0.01–1000 | 1.00 |
-| c exponent | Exponent $c$ of the damage index and of the number of effective cycles, 0.1–10 | 2.00 |
+| EPA factor β | Spectral amplification factor for EPA, EPV and EPD, 1.0–5.0. 2.25 corresponds to $`\beta_{\max}`$ of GB 50011, 2.5 to ATC-3-06 | 2.25 |
+| C multiplier | Linear scale factor $`C`$ of the damage index, 0.01–1000 | 1.00 |
+| c exponent | Exponent $`c`$ of the damage index and of the number of effective cycles, 0.1–10 | 2.00 |
 | Min. period (s) | Shortest period of the Sa,avg calculation, from 0.01 s, not above the longest period | 0.02 |
 | Max. period (s) | Longest period of the Sa,avg calculation, not below the shortest period, up to 20 s | 2.47 |
 | Period step (s) | Period step of the Sa,avg calculation, 0.01–1 s | 0.05 |
@@ -654,83 +654,83 @@ Spectral parameters (HSI, ASI, VSI, DSI, EPA, EPV, EPD, Tp, Sa,avg) use 5% dampi
 
 ### 7.3 Parameter Definitions
 
-Notation: $a(t)$ acceleration, $v(t)$ and $d(t)$ velocity and displacement integrated from acceleration, $T_{\mathrm{tot}}$ total duration of the record, $g = 9.80665\ \mathrm{m/s^2} = 980.665\ \mathrm{cm/s^2}$; integrals cover the whole record.
+Notation: $`a(t)`$ acceleration, $`v(t)`$ and $`d(t)`$ velocity and displacement integrated from acceleration, $`T_{\mathrm{tot}}`$ total duration of the record, $`g = 9.80665\ \mathrm{m/s^2} = 980.665\ \mathrm{cm/s^2}`$; integrals cover the whole record.
 
 #### Peak Parameters
 
 | Parameter | Name | Unit | Definition |
 | --- | --- | --- | --- |
-| PGA | Peak ground acceleration | [A] | $\max \lvert a(t) \rvert$ |
-| PGV | Peak ground velocity | [V] | $\max \lvert v(t) \rvert$ |
-| PGD | Peak ground displacement | [D] | $\max \lvert d(t) \rvert$ |
-| PGV/PGA | Velocity–acceleration ratio | s | $\mathrm{PGV} / (g \cdot \mathrm{PGA})$ |
-| PGD/PGV | Displacement–velocity ratio | s | $\mathrm{PGD} / \mathrm{PGV}$ |
-| SMA | Sustained maximum acceleration | [A] | 3rd highest sustained peak of $a(t)$ (Nuttli, 1979) |
-| SMV | Sustained maximum velocity | [V] | 3rd highest sustained peak of $v(t)$ |
-| SMD | Sustained maximum displacement | [D] | 3rd highest sustained peak of $d(t)$ |
+| PGA | Peak ground acceleration | [A] | $`\max \lvert a(t) \rvert`$ |
+| PGV | Peak ground velocity | [V] | $`\max \lvert v(t) \rvert`$ |
+| PGD | Peak ground displacement | [D] | $`\max \lvert d(t) \rvert`$ |
+| PGV/PGA | Velocity–acceleration ratio | s | $`\mathrm{PGV} / (g \cdot \mathrm{PGA})`$ |
+| PGD/PGV | Displacement–velocity ratio | s | $`\mathrm{PGD} / \mathrm{PGV}`$ |
+| SMA | Sustained maximum acceleration | [A] | 3rd highest sustained peak of $`a(t)`$ (Nuttli, 1979) |
+| SMV | Sustained maximum velocity | [V] | 3rd highest sustained peak of $`v(t)`$ |
+| SMD | Sustained maximum displacement | [D] | 3rd highest sustained peak of $`d(t)`$ |
 | EDA | Effective design acceleration | [A] | Maximum absolute value of the acceleration after 9 Hz low-pass filtering (Benjamin & Associates, 1988) |
-| EPA | Effective peak acceleration | [A] | $\dfrac{1}{0.4\beta} \displaystyle\int_{0.1}^{0.5} \mathrm{SA}(T) \mathrm{d}T$ |
-| EPV | Effective peak velocity | [V] | $\dfrac{1}{1.2\beta} \displaystyle\int_{0.8}^{2.0} \mathrm{PSV}(T) \mathrm{d}T$ |
-| EPD | Effective peak displacement | [D] | $\dfrac{1}{2.5\beta} \displaystyle\int_{2.0}^{4.5} \mathrm{SD}(T) \mathrm{d}T$ |
+| EPA | Effective peak acceleration | [A] | $`\dfrac{1}{0.4\beta} \displaystyle\int_{0.1}^{0.5} \mathrm{SA}(T) \mathrm{d}T`$ |
+| EPV | Effective peak velocity | [V] | $`\dfrac{1}{1.2\beta} \displaystyle\int_{0.8}^{2.0} \mathrm{PSV}(T) \mathrm{d}T`$ |
+| EPD | Effective peak displacement | [D] | $`\dfrac{1}{2.5\beta} \displaystyle\int_{2.0}^{4.5} \mathrm{SD}(T) \mathrm{d}T`$ |
 | A95 | A95 acceleration | [A] | Acceleration level containing 95% of the Arias intensity (Sarma & Yang, 1987) |
 
-EPA, EPV and EPD are the mean spectral values over the period ranges divided by $\beta$ (5% damping). A "sustained peak" is a local peak whose absolute value exceeds all absolute values within 20 time steps before and after it. A95: sort $\lvert a \rvert$ in ascending order and accumulate $a^2$; A95 is the $\lvert a \rvert$ at which the sum reaches 95% of $\sum a^2$. The low-pass filter of EDA works in the frequency domain with the gain $1 / [1 + (f / 9)^{8}]$, i.e. a 4th-order Butterworth filter applied forward and backward, so there is no phase lag.
+EPA, EPV and EPD are the mean spectral values over the period ranges divided by $`\beta`$ (5% damping). A "sustained peak" is a local peak whose absolute value exceeds all absolute values within 20 time steps before and after it. A95: sort $`\lvert a \rvert`$ in ascending order and accumulate $`a^2`$; A95 is the $`\lvert a \rvert`$ at which the sum reaches 95% of $`\sum a^2`$. The low-pass filter of EDA works in the frequency domain with the gain $`1 / [1 + (f / 9)^{8}]`$, i.e. a 4th-order Butterworth filter applied forward and backward, so there is no phase lag.
 
 #### RMS and Intensity Parameters
 
 | Parameter | Name | Unit | Definition |
 | --- | --- | --- | --- |
-| Arms | Root-mean-square acceleration | [A] | $\sqrt{\dfrac{1}{T_{\mathrm{tot}}} \displaystyle\int a^2(t) \mathrm{d}t}$ |
-| Vrms | Root-mean-square velocity | [V] | $\sqrt{\dfrac{1}{T_{\mathrm{tot}}} \displaystyle\int v^2(t) \mathrm{d}t}$ |
-| Drms | Root-mean-square displacement | [D] | $\sqrt{\dfrac{1}{T_{\mathrm{tot}}} \displaystyle\int d^2(t) \mathrm{d}t}$ |
-| Ic | Characteristic intensity | [A]^1.5·s^0.5 | $A_{\mathrm{rms}}^{1.5} \sqrt{T_{\mathrm{tot}}}$ (Park et al., 1985) |
-| Ia | Arias intensity | [V] | $\dfrac{\pi}{2g} \displaystyle\int a^2(t) \mathrm{d}t$, $a$ in $\mathrm{m/s^2}$ (Arias, 1970) |
-| SED | Specific energy density | [V]²·s | $\displaystyle\int v^2(t) \mathrm{d}t$ |
-| CAV | Cumulative absolute velocity | [V] | $\displaystyle\int \lvert a(t) \rvert \mathrm{d}t$ |
-| CAV_STD | Standardized cumulative absolute velocity | [V] | $\displaystyle\sum_{i=1}^{N} H(\mathrm{PGA}_i - 0.025\,g)\int_{i-1}^{i} \lvert a(t) \rvert \mathrm{d}t$ (Campbell & Bozorgnia, 2011) |
-| CAD | Cumulative absolute displacement | [D] | $\displaystyle\int \lvert v(t) \rvert \mathrm{d}t$ |
-| CAI | Cumulative absolute impetus | [D]·s | $\displaystyle\int \lvert d(t) \rvert \mathrm{d}t$ |
+| Arms | Root-mean-square acceleration | [A] | $`\sqrt{\dfrac{1}{T_{\mathrm{tot}}} \displaystyle\int a^2(t) \mathrm{d}t}`$ |
+| Vrms | Root-mean-square velocity | [V] | $`\sqrt{\dfrac{1}{T_{\mathrm{tot}}} \displaystyle\int v^2(t) \mathrm{d}t}`$ |
+| Drms | Root-mean-square displacement | [D] | $`\sqrt{\dfrac{1}{T_{\mathrm{tot}}} \displaystyle\int d^2(t) \mathrm{d}t}`$ |
+| Ic | Characteristic intensity | [A]^1.5·s^0.5 | $`A_{\mathrm{rms}}^{1.5} \sqrt{T_{\mathrm{tot}}}`$ (Park et al., 1985) |
+| Ia | Arias intensity | [V] | $`\dfrac{\pi}{2g} \displaystyle\int a^2(t) \mathrm{d}t`$, $`a`$ in $`\mathrm{m/s^2}`$ (Arias, 1970) |
+| SED | Specific energy density | [V]²·s | $`\displaystyle\int v^2(t) \mathrm{d}t`$ |
+| CAV | Cumulative absolute velocity | [V] | $`\displaystyle\int \lvert a(t) \rvert \mathrm{d}t`$ |
+| CAV_STD | Standardized cumulative absolute velocity | [V] | $`\displaystyle\sum_{i=1}^{N} H(\mathrm{PGA}_i - 0.025\,g)\int_{i-1}^{i} \lvert a(t) \rvert \mathrm{d}t`$ (Campbell & Bozorgnia, 2011) |
+| CAD | Cumulative absolute displacement | [D] | $`\displaystyle\int \lvert v(t) \rvert \mathrm{d}t`$ |
+| CAI | Cumulative absolute impetus | [D]·s | $`\displaystyle\int \lvert d(t) \rvert \mathrm{d}t`$ |
 
-CAV_STD divides the record into $N$ windows of 1 s (a final part shorter than 1 s counts as a window); $\mathrm{PGA}_i$ is the peak acceleration in window $i$ and $H$ is the Heaviside step function. A window adds its $\int \lvert a \rvert \mathrm{d}t$ only if its peak acceleration exceeds 0.025 g, so weak shaking is not accumulated.
+CAV_STD divides the record into $`N`$ windows of 1 s (a final part shorter than 1 s counts as a window); $`\mathrm{PGA}_i`$ is the peak acceleration in window $`i`$ and $`H`$ is the Heaviside step function. A window adds its $`\int \lvert a \rvert \mathrm{d}t`$ only if its peak acceleration exceeds 0.025 g, so weak shaking is not accumulated.
 
 #### Incremental Velocity, Cycles and Impulsivity
 
 | Parameter | Name | Unit | Definition |
 | --- | --- | --- | --- |
-| MIV | Maximum incremental velocity | [V] | Maximum of the area $\left\lvert \int a(t) \mathrm{d}t \right\rvert$ under the acceleration curve between two consecutive zero crossings (Anderson & Bertero, 1987) |
-| DI | Damage index | [A]^c | $C \displaystyle\sum_i n_i A_i^{c}$ (Malhotra, 2002) |
-| Ne | Number of effective cycles | — | $\displaystyle\sum_i n_i \left(\dfrac{A_i}{A_{\max}}\right)^{c}$ (Malhotra, 2002) |
-| IP | Impulsivity index | — | $\dfrac{\sum \lvert \Delta v \rvert}{\mathrm{PGV}}$ (Panella et al., 2017) |
+| MIV | Maximum incremental velocity | [V] | Maximum of the area $`\left\lvert \int a(t) \mathrm{d}t \right\rvert`$ under the acceleration curve between two consecutive zero crossings (Anderson & Bertero, 1987) |
+| DI | Damage index | [A]^c | $`C \displaystyle\sum_i n_i A_i^{c}`$ (Malhotra, 2002) |
+| Ne | Number of effective cycles | — | $`\displaystyle\sum_i n_i \left(\dfrac{A_i}{A_{\max}}\right)^{c}`$ (Malhotra, 2002) |
+| IP | Impulsivity index | — | $`\dfrac{\sum \lvert \Delta v \rvert}{\mathrm{PGV}}`$ (Panella et al., 2017) |
 
-MIV locates the zero crossings by linear interpolation; the parameter is discussed by Guaman (2010). DI and Ne first apply rainflow counting (ASTM E1049-85, three-point method) to the acceleration history; $A_i$ is the amplitude of the $i$-th kind of cycle (half the range, in g) and $n_i$ its number, 1 for a full cycle and 0.5 for a remaining half cycle, $A_{\max}$ is the largest cycle amplitude, and $C$ and $c$ are the C multiplier and c exponent of the parameter options; the procedure is summarized by Hancock & Bommer (2005). IP is the developed length of the velocity history divided by PGV, where the developed length is the sum of the absolute velocity differences between consecutive samples; a single pulse gives a small IP and more oscillations give a larger IP.
+MIV locates the zero crossings by linear interpolation; the parameter is discussed by Guaman (2010). DI and Ne first apply rainflow counting (ASTM E1049-85, three-point method) to the acceleration history; $`A_i`$ is the amplitude of the $`i`$-th kind of cycle (half the range, in g) and $`n_i`$ its number, 1 for a full cycle and 0.5 for a remaining half cycle, $`A_{\max}`$ is the largest cycle amplitude, and $`C`$ and $`c`$ are the C multiplier and c exponent of the parameter options; the procedure is summarized by Hancock & Bommer (2005). IP is the developed length of the velocity history divided by PGV, where the developed length is the sum of the absolute velocity differences between consecutive samples; a single pulse gives a small IP and more oscillations give a larger IP.
 #### Duration
 
 | Parameter | Name | Unit | Definition |
 | --- | --- | --- | --- |
-| Td | Significant duration | s | $t_{95} - t_{5}$ (Trifunac & Brady, 1975) |
+| Td | Significant duration | s | $`t_{95} - t_{5}`$ (Trifunac & Brady, 1975) |
 
-$t_{5}$ and $t_{95}$ are the times at which the cumulative Arias intensity reaches 5% and 95% of the total.
+$`t_{5}`$ and $`t_{95}`$ are the times at which the cumulative Arias intensity reaches 5% and 95% of the total.
 
 #### Spectral Intensity (5% Damping)
 
 | Parameter | Name | Unit | Definition |
 | --- | --- | --- | --- |
-| HSI | Housner spectrum intensity | [D] | $\displaystyle\int_{0.1}^{2.5} \mathrm{PSV}(T) \mathrm{d}T$ (Housner, 1952) |
-| ASI | Acceleration spectrum intensity | [A]·s | $\displaystyle\int_{0.1}^{0.5} \mathrm{SA}(T) \mathrm{d}T$ (Von Thun et al., 1988) |
-| VSI | Velocity spectrum intensity | [D] | $\displaystyle\int_{0.1}^{2.5} \mathrm{SV}(T) \mathrm{d}T$ (Von Thun et al., 1988) |
-| DSI | Displacement spectrum intensity | [D]·s | $\displaystyle\int_{2.0}^{5.0} \mathrm{SD}(T) \mathrm{d}T$ (Bradley, 2011) |
-| Sa,avg | Average spectral acceleration | [A] | $\left[ \displaystyle\prod_{i=1}^{n} \mathrm{PSA}(T_i) \right]^{1/n}$ (Bianchini et al., 2009) |
+| HSI | Housner spectrum intensity | [D] | $`\displaystyle\int_{0.1}^{2.5} \mathrm{PSV}(T) \mathrm{d}T`$ (Housner, 1952) |
+| ASI | Acceleration spectrum intensity | [A]·s | $`\displaystyle\int_{0.1}^{0.5} \mathrm{SA}(T) \mathrm{d}T`$ (Von Thun et al., 1988) |
+| VSI | Velocity spectrum intensity | [D] | $`\displaystyle\int_{0.1}^{2.5} \mathrm{SV}(T) \mathrm{d}T`$ (Von Thun et al., 1988) |
+| DSI | Displacement spectrum intensity | [D]·s | $`\displaystyle\int_{2.0}^{5.0} \mathrm{SD}(T) \mathrm{d}T`$ (Bradley, 2011) |
+| Sa,avg | Average spectral acceleration | [A] | $`\left[ \displaystyle\prod_{i=1}^{n} \mathrm{PSA}(T_i) \right]^{1/n}`$ (Bianchini et al., 2009) |
 
-The integration limits are periods in seconds. Sa,avg uses the pseudo-acceleration spectrum PSA at 5% damping at the periods $T_i = T_{\min} + k \Delta T$ (not above $T_{\max}$); the three quantities are the shortest period, longest period and period step of the parameter options, and the geometric mean is taken. The defaults, 0.02–2.47 s with a step of 0.05 s, give 50 periods.
+The integration limits are periods in seconds. Sa,avg uses the pseudo-acceleration spectrum PSA at 5% damping at the periods $`T_i = T_{\min} + k \Delta T`$ (not above $`T_{\max}`$); the three quantities are the shortest period, longest period and period step of the parameter options, and the geometric mean is taken. The defaults, 0.02–2.47 s with a step of 0.05 s, give 50 periods.
 
 #### Frequency Parameters
 
 | Parameter | Name | Unit | Definition |
 | --- | --- | --- | --- |
-| Tp | Predominant period | s | $\arg\max\limits_{T} \mathrm{SA}(T)$, the period of maximum SA at 5% damping |
-| Tm | Mean period | s | $\dfrac{\sum_i C_i^2 / f_i}{\sum_i C_i^2}$, $0.25\ \mathrm{Hz} \le f_i \le 20\ \mathrm{Hz}$ (Rathje et al., 1998) |
+| Tp | Predominant period | s | $`\arg\max\limits_{T} \mathrm{SA}(T)`$, the period of maximum SA at 5% damping |
+| Tm | Mean period | s | $`\dfrac{\sum_i C_i^2 / f_i}{\sum_i C_i^2}`$, $`0.25\ \mathrm{Hz} \le f_i \le 20\ \mathrm{Hz}`$ (Rathje et al., 1998) |
 
-$C_i$ is the Fourier amplitude of acceleration at frequency $f_i$.
+$`C_i`$ is the Fourier amplitude of acceleration at frequency $`f_i`$.
 
 ### 7.4 Integration and Baseline Correction
 
@@ -787,13 +787,13 @@ Stiffness is in "force unit/displacement unit" and loop area (energy) in "force 
 | Column | Symbol | Meaning |
 | --- | --- | --- |
 | Cycle | — | Cycle number |
-| Δ+, F+ | $\Delta^{+}$, $F^{+}$ | Displacement and force of the positive peak point |
-| Δ−, F− | $\Delta^{-}$, $F^{-}$ | Displacement and force of the negative peak point |
-| K | $K$ | Secant stiffness |
-| Res.+, Res.− | $\Delta_r^{+}$, $\Delta_r^{-}$ | Residual displacement after unloading to zero force from the positive and negative sides |
-| Res. avg | $\bar\Delta_r$ | Mean of the absolute positive and negative residual displacements |
-| Area | $S_{\mathrm{loop}}$ | Loop area (dissipated energy) |
-| ξeq | $\xi_{\mathrm{eq}}$ | Equivalent viscous damping ratio |
+| Δ+, F+ | $`\Delta^{+}`$, $`F^{+}`$ | Displacement and force of the positive peak point |
+| Δ−, F− | $`\Delta^{-}`$, $`F^{-}`$ | Displacement and force of the negative peak point |
+| K | $`K`$ | Secant stiffness |
+| Res.+, Res.− | $`\Delta_r^{+}`$, $`\Delta_r^{-}`$ | Residual displacement after unloading to zero force from the positive and negative sides |
+| Res. avg | $`\bar\Delta_r`$ | Mean of the absolute positive and negative residual displacements |
+| Area | $`S_{\mathrm{loop}}`$ | Loop area (dissipated energy) |
+| ξeq | $`\xi_{\mathrm{eq}}`$ | Equivalent viscous damping ratio |
 
 Metric charts: Peak load (positive and absolute negative), Residual displacement (positive, absolute negative and mean), Secant stiffness, Equivalent viscous damping ratio and Loop area.
 
@@ -817,33 +817,33 @@ Metric charts: Peak load (positive and absolute negative), Residual displacement
 
 **Secant stiffness** (JGJ/T 101-2015):
 
-$$
+```math
 K = \frac{\lvert F^{+} \rvert + \lvert F^{-} \rvert}{\lvert \Delta^{+} \rvert + \lvert \Delta^{-} \rvert}
-$$
+```
 
-where $(\Delta^{+}, F^{+})$ and $(\Delta^{-}, F^{-})$ are the positive and negative peak points of the cycle.
+where $`(\Delta^{+}, F^{+})`$ and $`(\Delta^{-}, F^{-})`$ are the positive and negative peak points of the cycle.
 
-**Residual displacement**: unloading from the load reversal point (maximum/minimum displacement), when the force changes sign from $F_{i-1}$ to $F_i$, the displacement is interpolated linearly between the two points:
+**Residual displacement**: unloading from the load reversal point (maximum/minimum displacement), when the force changes sign from $`F_{i-1}`$ to $`F_i`$, the displacement is interpolated linearly between the two points:
 
-$$
+```math
 \Delta_r = \Delta_{i-1} + \left( \Delta_i - \Delta_{i-1} \right) \frac{F_{i-1}}{F_{i-1} - F_i}
-$$
+```
 
-**Loop area**: the $n$ points of a cycle are treated as a closed polygon (shoelace formula):
+**Loop area**: the $`n`$ points of a cycle are treated as a closed polygon (shoelace formula):
 
-$$
+```math
 S_{\mathrm{loop}} = \frac{1}{2} \left\lvert \sum_{i=1}^{n} \left( \Delta_i F_{i+1} - \Delta_{i+1} F_i \right) \right\rvert, \qquad (\Delta_{n+1}, F_{n+1}) = (\Delta_1, F_1)
-$$
+```
 
 **Equivalent viscous damping ratio**:
 
-$$
+```math
 \xi_{\mathrm{eq}} = \frac{S_{\mathrm{loop}}}{2\pi \left( S_{OBE} + S_{ODF} \right)}, \qquad
 S_{OBE} = \frac{1}{2} \lvert F^{+} \Delta^{+} \rvert, \qquad
 S_{ODF} = \frac{1}{2} \lvert F^{-} \Delta^{-} \rvert
-$$
+```
 
-where $S_{\mathrm{loop}}$ is the loop area and $S_{OBE}$ and $S_{ODF}$ are the triangle areas formed by the positive and negative peak points with the origin and the horizontal axis (elastic strain energy).
+where $`S_{\mathrm{loop}}`$ is the loop area and $`S_{OBE}`$ and $`S_{ODF}`$ are the triangle areas formed by the positive and negative peak points with the origin and the horizontal axis (elastic strain energy).
 
 ### 8.5 Loop Decomposition
 
@@ -916,19 +916,19 @@ After changing the parameters, existing results of the current data are recalcul
 ### 9.3 Skeleton Extraction
 
 1. Split the curve into half cycles at zero crossings of displacement (as in Hysteresis Analysis).
-2. The amplitude $\delta$ of a half cycle is its maximum absolute displacement. If $\delta \le (1 + \varepsilon_L) \delta_{\mathrm{prev}}$, the half cycle repeats the same level and is skipped; otherwise it starts a new loading level. $\varepsilon_L$ is Level tolerance and $\delta_{\mathrm{prev}}$ the amplitude of the previous level in the same direction.
+2. The amplitude $`\delta`$ of a half cycle is its maximum absolute displacement. If $`\delta \le (1 + \varepsilon_L) \delta_{\mathrm{prev}}`$, the half cycle repeats the same level and is skipped; otherwise it starts a new loading level. $`\varepsilon_L`$ is Level tolerance and $`\delta_{\mathrm{prev}}`$ the amplitude of the previous level in the same direction.
 3. Take the peak point (per Peak point) of the **first half cycle** of each loading level.
 4. Connect the negative points (outside in), the origin and the positive points (inside out) to form the skeleton curve.
 
 ### 9.4 Characteristic Points and Yield Point Methods
 
-The positive and negative directions are computed separately (the negative branch is mirrored and treated as positive; the table shows negative values). Below, $D$ and $F$ are displacement and load of the skeleton curve and $F(D)$ is the load at displacement $D$ (linear interpolation between skeleton points).
+The positive and negative directions are computed separately (the negative branch is mirrored and treated as positive; the table shows negative values). Below, $`D`$ and $`F`$ are displacement and load of the skeleton curve and $`F(D)`$ is the load at displacement $`D`$ (linear interpolation between skeleton points).
 
-**Peak point** $(D_p, F_p)$: the point of maximum load; for equal loads, the larger displacement.
+**Peak point** $`(D_p, F_p)`$: the point of maximum load; for equal loads, the larger displacement.
 
-**Ultimate point** $(D_u, F_u)$: the point after the peak where the load first drops to $F_u = \eta_u F_p$ (linear interpolation), $\eta_u$ being Ultimate load (default 0.85). If the load does not drop to this ratio in the test, the last skeleton point is used and marked with `*` in the table.
+**Ultimate point** $`(D_u, F_u)`$: the point after the peak where the load first drops to $`F_u = \eta_u F_p`$ (linear interpolation), $`\eta_u`$ being Ultimate load (default 0.85). If the load does not drop to this ratio in the test, the last skeleton point is used and marked with `*` in the table.
 
-**Initial stiffness** $K_0$: slope of the first segment from the origin, $K_0 = F_1 / D_1$, where $(D_1, F_1)$ is the first skeleton point after the origin.
+**Initial stiffness** $`K_0`$: slope of the first segment from the origin, $`K_0 = F_1 / D_1`$, where $`(D_1, F_1)`$ is the first skeleton point after the origin.
 
 The yield point methods follow Feng et al. (2017):
 
@@ -942,59 +942,59 @@ The yield point methods follow Feng et al. (2017):
 
 #### Graphical Method I (General Yield Moment Method)
 
-The initial tangent $F = K_0 D$ meets the peak load line $F = F_p$ at A; a vertical line through A meets the curve at B; OB extended meets $F = F_p$ at C, whose displacement is the yield displacement:
+The initial tangent $`F = K_0 D`$ meets the peak load line $`F = F_p`$ at A; a vertical line through A meets the curve at B; OB extended meets $`F = F_p`$ at C, whose displacement is the yield displacement:
 
-$$
+```math
 D_A = \frac{F_p}{K_0}, \qquad F_B = F(D_A), \qquad D_y = D_C = \frac{F_p}{F_B} D_A
-$$
+```
 
 #### Graphical Method II (Park Method)
 
-Take point A on the curve at load $\eta_P F_p$ ($\eta_P$ is Graphical II load, default 0.75); OA extended meets $F = F_p$ at B, whose displacement is the yield displacement:
+Take point A on the curve at load $`\eta_P F_p`$ ($`\eta_P`$ is Graphical II load, default 0.75); OA extended meets $`F = F_p`$ at B, whose displacement is the yield displacement:
 
-$$
+```math
 F(D_A) = \eta_P F_p, \qquad D_y = D_B = \frac{D_A}{\eta_P}
-$$
+```
 
 #### Graphical Method III (Tangent Method)
 
-The initial tangent and the tangent of the last segment before the peak meet at P, where $(D', F')$ is the skeleton point before the peak:
+The initial tangent and the tangent of the last segment before the peak meet at P, where $`(D', F')`$ is the skeleton point before the peak:
 
-$$
+```math
 K_1 = \frac{F_p - F'}{D_p - D'}, \qquad D_P = \frac{F_p - K_1 D_p}{K_0 - K_1}, \qquad F_P = K_0 D_P
-$$
+```
 
-The foot of the perpendicular from P to the curve is the yield point. The distance is measured in normalized coordinates $(D/D_p, F/F_p)$, so the result does not depend on units. The method requires $K_0 > K_1$.
+The foot of the perpendicular from P to the curve is the yield point. The distance is measured in normalized coordinates $`(D/D_p, F/F_p)`$, so the result does not depend on units. The method requires $`K_0 > K_1`$.
 
 #### Equivalent Energy Method
 
-The curve is replaced by an ideal elastic–plastic bilinear curve $O \to (D_y, F_p) \to (D_p, F_p)$ with the same area under it (from the origin to the peak):
+The curve is replaced by an ideal elastic–plastic bilinear curve $`O \to (D_y, F_p) \to (D_p, F_p)`$ with the same area under it (from the origin to the peak):
 
-$$
+```math
 F_p D_p - \frac{1}{2} F_p D_y = A = \int_0^{D_p} F(D) \mathrm{d}D
 \qquad \Rightarrow \qquad
 D_y = \frac{2 \left( F_p D_p - A \right)}{F_p}
-$$
+```
 
-In the figure, $A_1$ (curve above the bilinear line) is filled in cyan and $A_2$ (bilinear line above the curve) is hatched in orange; the two areas are equal.
+In the figure, $`A_1`$ (curve above the bilinear line) is filled in cyan and $`A_2`$ (bilinear line above the curve) is hatched in orange; the two areas are equal.
 
 #### Farthest Point Method
 
 The point of the curve farthest from the line joining the origin and the peak is the yield point:
 
-$$
+```math
 d(D) = \frac{\lvert F_p D - D_p F(D) \rvert}{\sqrt{F_p^2 + D_p^2}}, \qquad D_y = \arg\max_{0 \le D \le D_p} d(D)
-$$
+```
 
-If the curve is nearly straight, i.e. the normalized maximum distance $\max \lvert D/D_p - F/F_p \rvert / \sqrt{2} < 0.01$, there is no distinct yield point.
+If the curve is nearly straight, i.e. the normalized maximum distance $`\max \lvert D/D_p - F/F_p \rvert / \sqrt{2} < 0.01`$, there is no distinct yield point.
 
 #### Yield Load and Ductility Factor
 
-The yield displacement of each method is limited to $D_y \le D_p$ and the yield load is the load on the skeleton curve $F_y = F(D_y)$ (the yield point lies on the curve). The ductility factor is:
+The yield displacement of each method is limited to $`D_y \le D_p`$ and the yield load is the load on the skeleton curve $`F_y = F(D_y)`$ (the yield point lies on the curve). The ductility factor is:
 
-$$
+```math
 \mu = \frac{D_u}{D_y}
-$$
+```
 
 Columns of the Characteristic points table: Point, Δ+, F+, Δ−, F−, μ+, μ−. The rows are Peak point, Ultimate point (ratio Fp) and the yield points of the five methods (Yield – method name).
 
@@ -1028,7 +1028,7 @@ In quasi-static tests the vertical load is applied by a jack. As the column top 
    - **Time history**: a vertical force time history; the file has a single vertical force column;
    - **Constant**: enter a constant vertical force (compression positive).
    - For the first two sources click **Import** on the right; each source keeps its own file, shown when the source is selected. **Use** selects how the vertical force is taken.
-3. In **Parameters** set the display units, the geometry parameters $L$, $L_{\mathrm{top}}$, $L_{\mathrm{bot}}$ and the zero tolerance. Parameters not used by the current setup are disabled.
+3. In **Parameters** set the display units, the geometry parameters $`L`$, $`L_{\mathrm{top}}`$, $`L_{\mathrm{bot}}`$ and the zero tolerance. Parameters not used by the current setup are disabled.
 4. In **Loading setup** choose the loading setup: click Case 1 to Case 3 on the left; the diagram is shown on the right and the correction formula below (see [Section 10.3](#103-the-three-loading-setups-and-formulas)).
 5. Click **Correct**. The upper plot overlays the Original and Corrected hysteresis loops, and **Characteristic values** below compares the values before and after. Afterwards, changing the data, parameters or setup recalculates the result automatically; with invalid parameters or missing data the result is cleared—complete the input and click **Correct** again.
 6. Click **Export results** to export the data (see [Section 10.6](#106-export)), or click **Send to Hysteresis Analysis** at the top of the page to add the corrected data to the hysteresis data and continue with the hysteresis analysis and the skeleton curve.
@@ -1050,9 +1050,9 @@ A vertical force time history file has a single force column, so the **Load vert
 | Option | Description | Default |
 | --- | --- | --- |
 | Displacement unit / Force unit | Display units. Geometry parameters and the constant vertical force are entered in the display units; switching units converts the values and the physical quantities stay unchanged | Unit of the imported file |
-| Loading height $L$ | Distance from the top of the base to the horizontal loading point | 1000 mm |
-| Top length $L_{\mathrm{top}}$ | Distance from the horizontal loading point up to the top of the vertical jack | 300 mm |
-| Bottom length $L_{\mathrm{bot}}$ | Distance from the top of the base down to the bottom end of the vertical jack | 300 mm |
+| Loading height $`L`$ | Distance from the top of the base to the horizontal loading point | 1000 mm |
+| Top length $`L_{\mathrm{top}}`$ | Distance from the horizontal loading point up to the top of the vertical jack | 300 mm |
+| Bottom length $`L_{\mathrm{bot}}`$ | Distance from the top of the base down to the bottom end of the vertical jack | 300 mm |
 | Zero tolerance | Zero-crossing tolerance used to split cycles when computing characteristic values (as in [Section 8.2](#82-analysis-options)) | 1.0 % |
 
 The geometry parameters used by each setup are listed below; unused ones are disabled and ignored. Used parameters must be greater than zero, otherwise clicking **Correct** shows "Parameter … must be greater than zero!".
@@ -1061,22 +1061,22 @@ The geometry parameters used by each setup are listed below; unused ones are dis
 
 ![The three loading setups](images/18_correction_cases.png)
 
-In the table $\Delta$ is the horizontal displacement, $P$ the vertical force and $F$ the corrected base shear. $\Delta$, $F_{\mathrm{eff}}$ and $F_{\mathrm{Rep}}$ are signed, so both directions are treated symmetrically; $P$ is positive in compression. If compression is recorded as negative in your data, set **Force factor** to −1 when importing the vertical force file.
+In the table $`\Delta`$ is the horizontal displacement, $`P`$ the vertical force and $`F`$ the corrected base shear. $`\Delta`$, $`F_{\mathrm{eff}}`$ and $`F_{\mathrm{Rep}}`$ are signed, so both directions are treated symmetrically; $`P`$ is positive in compression. If compression is recorded as negative in your data, set **Force factor** to −1 when importing the vertical force file.
 
 | Case | Loading setup | Measured force | Parameters used | Formula |
 | --- | --- | --- | --- | --- |
-| Case 1 | The vertical force acts on the column top and tilts with the sway; the horizontal force is the effective force of the device | $F_{\mathrm{eff}}$ | $L$ | $F = F_{\mathrm{eff}} - \dfrac{P \Delta}{L}$ |
-| Case 2 | Horizontal jack; the vertical jack is fixed at a point $L_{\mathrm{top}}$ above the loading point and tilts with the column top | $F_{\mathrm{Rep}}$ | $L_{\mathrm{top}}$ | $F = F_{\mathrm{Rep}} + \dfrac{P \Delta}{L_{\mathrm{top}}}$ |
-| Case 3 | Horizontal jack; the vertical force always points to the same position at the bottom of the base | $F_{\mathrm{Rep}}$ | $L$, $L_{\mathrm{top}}$, $L_{\mathrm{bot}}$ | $F = F_{\mathrm{Rep}} - P \sin\alpha$, $\tan\alpha = \dfrac{\Delta (L + L_{\mathrm{top}}) / L}{L + L_{\mathrm{bot}} + L_{\mathrm{top}}}$ |
+| Case 1 | The vertical force acts on the column top and tilts with the sway; the horizontal force is the effective force of the device | $`F_{\mathrm{eff}}`$ | $`L`$ | $`F = F_{\mathrm{eff}} - \dfrac{P \Delta}{L}`$ |
+| Case 2 | Horizontal jack; the vertical jack is fixed at a point $`L_{\mathrm{top}}`$ above the loading point and tilts with the column top | $`F_{\mathrm{Rep}}`$ | $`L_{\mathrm{top}}`$ | $`F = F_{\mathrm{Rep}} + \dfrac{P \Delta}{L_{\mathrm{top}}}`$ |
+| Case 3 | Horizontal jack; the vertical force always points to the same position at the bottom of the base | $`F_{\mathrm{Rep}}`$ | $`L`$, $`L_{\mathrm{top}}`$, $`L_{\mathrm{bot}}`$ | $`F = F_{\mathrm{Rep}} - P \sin\alpha`$, $`\tan\alpha = \dfrac{\Delta (L + L_{\mathrm{top}}) / L}{L + L_{\mathrm{bot}} + L_{\mathrm{top}}}`$ |
 
-The layout of the diagrams follows setups (a), (c) and (d) of Fig. 3.5 of Reference 19. A setup whose measured force is already the base shear (setup (b) in the figure) needs no correction and is not handled on this page. The correction of Case 2 is the horizontal component $P \Delta / L_{\mathrm{top}}$ produced by the tilted vertical jack (the reference prints $P L_{\mathrm{top}} / \Delta$, which grows without bound as the displacement approaches zero and does not agree with the geometry). In Case 3, $L_{\mathrm{top}}$ is the distance from the upper reference line of the vertical force line to the horizontal loading point, which the figure of the reference does not mark.
+The layout of the diagrams follows setups (a), (c) and (d) of Fig. 3.5 of Reference 19. A setup whose measured force is already the base shear (setup (b) in the figure) needs no correction and is not handled on this page. The correction of Case 2 is the horizontal component $`P \Delta / L_{\mathrm{top}}`$ produced by the tilted vertical jack (the reference prints $`P L_{\mathrm{top}} / \Delta`$, which grows without bound as the displacement approaches zero and does not agree with the geometry). In Case 3, $`L_{\mathrm{top}}`$ is the distance from the upper reference line of the vertical force line to the horizontal loading point, which the figure of the reference does not mark.
 
 ### 10.4 Fusing the Vertical Force with the Horizontal Curve
 
 The horizontal force–displacement curve and the vertical force data may have different numbers of points and different displacement precision, so the program first aligns the vertical force to every point of the horizontal curve:
 
-- **Force-displacement**: both curves describe the same loading process. Each is normalized to 0–1 by its cumulative displacement path $s_i = \sum_{k \le i} \lvert \Delta_k - \Delta_{k-1} \rvert$ divided by the total path, and the vertical force is linearly interpolated at the normalized path of every point of the horizontal curve. Points with the same normalized path are averaged; if the total path is zero, the point index is used instead.
-- **Time history**: there is no common independent variable, so the records are aligned by relative index $i/(N-1)$, assuming that the vertical force record covers the same complete test as the horizontal curve.
+- **Force-displacement**: both curves describe the same loading process. Each is normalized to 0–1 by its cumulative displacement path $`s_i = \sum_{k \le i} \lvert \Delta_k - \Delta_{k-1} \rvert`$ divided by the total path, and the vertical force is linearly interpolated at the normalized path of every point of the horizontal curve. Points with the same normalized path are averaged; if the total path is zero, the point index is used instead.
+- **Time history**: there is no common independent variable, so the records are aligned by relative index $`i/(N-1)`$, assuming that the vertical force record covers the same complete test as the horizontal curve.
 - **Constant**: the same constant at every point.
 
 **Use** is then applied: Point by point keeps the matched vertical force; Mean value and Maximum value take the mean and the value of maximum amplitude of all points as a constant.
@@ -1093,7 +1093,7 @@ The horizontal force–displacement curve and the vertical force data may have d
 | Energy dissipation | Sum of the loop areas (total dissipated energy) |
 | Mean stiffness | Mean secant stiffness |
 
-The change is $(X_{\mathrm{corrected}} - X_{\mathrm{original}}) / \lvert X_{\mathrm{original}} \rvert \times 100\%$. The values are computed as in [Section 8.4](#84-calculation-methods), with the Peak load definition of the peak point. **Matched vertical force** below the table gives the mean and maximum amplitude of the vertical force aligned to the horizontal curve.
+The change is $`(X_{\mathrm{corrected}} - X_{\mathrm{original}}) / \lvert X_{\mathrm{original}} \rvert \times 100\%`$. The values are computed as in [Section 8.4](#84-calculation-methods), with the Peak load definition of the peak point. **Matched vertical force** below the table gives the mean and maximum amplitude of the vertical force aligned to the horizontal curve.
 
 ### 10.6 Export
 
@@ -1125,13 +1125,13 @@ When a quasi-static test is paused, equipment is adjusted or the load is held, t
 
 ### 11.2 Detection and Removal
 
-Let the displacement series be $d_1, d_2, \dots, d_N$, the maximum displacement amplitude $d_{\max} = \max_i \lvert d_i \rvert$, **Flatness tolerance** $\varepsilon$ (a percentage of $d_{\max}$, default 0.2 %) and **Minimum length** $n_{\min}$ (default 50 points). For every window $W$ of $n_{\min}$ consecutive points, if
+Let the displacement series be $`d_1, d_2, \dots, d_N`$, the maximum displacement amplitude $`d_{\max} = \max_i \lvert d_i \rvert`$, **Flatness tolerance** $`\varepsilon`$ (a percentage of $`d_{\max}`$, default 0.2 %) and **Minimum length** $`n_{\min}`$ (default 50 points). For every window $`W`$ of $`n_{\min}`$ consecutive points, if
 
-$$
+```math
 \max_{k \in W} d_k - \min_{k \in W} d_k \le \varepsilon \, d_{\max}
-$$
+```
 
-then $W$ is a still window. Overlapping still windows are merged into one **waiting segment**, whose length is at least $n_{\min}$. The detection does not depend on the displacement level, so stops at zero displacement and load holds at peaks are both detected.
+then $`W`$ is a still window. Overlapping still windows are merged into one **waiting segment**, whose length is at least $`n_{\min}`$. The detection does not depend on the displacement level, so stops at zero displacement and load holds at peaks are both detected.
 
 All points inside the selected waiting segments are deleted and the remaining points keep their order. The displacements at the two ends of a segment are practically equal, so the processed loops have no displacement jumps; the force relaxation during the wait (the vertical lines in the loops) is removed together with it, and there may be a jump between the two force values on either side of a removed segment.
 
@@ -1168,7 +1168,7 @@ The **PILE FOUNDATION** group in the sidebar supports hand checks and finite ele
 | Pile Forces | Forces | m method: cap displacement, pile-top forces of every pile, and the depth distribution of moment, shear, displacement and soil resistance |
 | Spring Stiffness | Springs | 6×6 stiffness matrix of a pile group or a single pile, and the distributed lateral and vertical springs and the tip springs along the pile |
 
-All four pages share the pile model entered on the Pile Data page. The step bar at the top of each page lists the four steps in order from 1 to 4. Click **Next** after entering the data to open the following page without going back to the sidebar. When any input there changes, the results already shown on the other pages are cleared and **Calculate** must be clicked again. After the Pile Forces page has computed the pile-top axial forces, the Bearing Capacity page compares the largest one, $N_{\max}$, with the allowable capacity $[P]$ of a single pile.
+All four pages share the pile model entered on the Pile Data page. The step bar at the top of each page lists the four steps in order from 1 to 4. Click **Next** after entering the data to open the following page without going back to the sidebar. When any input there changes, the results already shown on the other pages are cleared and **Calculate** must be clicked again. After the Pile Forces page has computed the pile-top axial forces, the Bearing Capacity page compares the largest one, $`N_{\max}`$, with the allowable capacity $`[P]`$ of a single pile.
 
 ### 12.2 Pile Data
 
@@ -1178,7 +1178,7 @@ The left side of the page holds **Project**, **Soil layers** and **Loads**. On t
 
 - **Load an example**: loads one of the two examples (example 1: a single row of two piles, example 2: high cap with 2×2 piles) to learn the input format and check results (see [section 12.7](#127-checking-the-examples)).
 - **Open… / Save…**: reads and writes a JSON project file holding all inputs.
-- **Reference tables**: click the card at the top right of the Project group to see the reference tables: $m$ and $m_0$ values, the shaft friction of bored and driven piles, the bearing capacity of the soil at the pile tip and the correction coefficients of bored piles. The Reference code box at the top of the window switches between the built-in TB 10093-2017 (railway bridges and culverts, the default) and JTG 3363-2019 (highway bridges and culverts); a note below the tables gives the source and the conditions of use. More codes can be added by placing `.json` files in the `Reference Codes` folder of the working directory (the file format is described at the top of `src/utils/pile_reference.py`); they are read when the window opens.
+- **Reference tables**: click the card at the top right of the Project group to see the reference tables: $`m`$ and $`m_0`$ values, the shaft friction of bored and driven piles, the bearing capacity of the soil at the pile tip and the correction coefficients of bored piles. The Reference code box at the top of the window switches between the built-in TB 10093-2017 (railway bridges and culverts, the default) and JTG 3363-2019 (highway bridges and culverts); a note below the tables gives the source and the conditions of use. More codes can be added by placing `.json` files in the `Reference Codes` folder of the working directory (the file format is described at the top of `src/utils/pile_reference.py`); they are read when the window opens.
 
 **Pile**
 
@@ -1186,59 +1186,59 @@ The left side of the page holds **Project**, **Soil layers** and **Loads**. On t
 | --- | --- |
 | Section | Circular or rectangular. The Y width of a rectangular pile is entered separately |
 | Diameter / width X | Diameter of a circular pile, or width along X of a rectangular pile. Use the hole diameter for bored piles |
-| Concrete grade / Elastic modulus Ec | Choose C20 to C50 to get $E_c$ automatically, or choose Custom to enter it |
-| EI factor | Flexural rigidity $EI = \text{factor} \times E_c I$, 0.8 in TB 10002.5-2005 |
-| Free length l0 | Height $l_0$ of the pile top (bottom of the cap) above the ground or local scour line, 0 for a low cap |
-| Embedded length h | Embedded length $h$ below the ground or local scour line |
-| Construction | Bored / dug cast-in-place, or driven / vibro-sunk. It affects the coefficient $\xi$ of the axial stiffness |
+| Concrete grade / Elastic modulus Ec | Choose C20 to C50 to get $`E_c`$ automatically, or choose Custom to enter it |
+| EI factor | Flexural rigidity $`EI = \text{factor} \times E_c I`$, 0.8 in TB 10002.5-2005 |
+| Free length l0 | Height $`l_0`$ of the pile top (bottom of the cap) above the ground or local scour line, 0 for a low cap |
+| Embedded length h | Embedded length $`h`$ below the ground or local scour line |
+| Construction | Bored / dug cast-in-place, or driven / vibro-sunk. It affects the coefficient $`\xi`$ of the axial stiffness |
 | Bearing type | Friction pile or end-bearing pile |
 | Pile tip | In soil, on the rock surface, or embedded in rock. It sets the boundary condition at the pile tip |
-| m0 of tip soil | Proportional coefficient $m_0$ of the vertical subgrade coefficient below the tip, 0 uses $m$ of the last layer |
-| Rock strength R | Saturated uniaxial compressive strength of the rock at the tip, used to look up the vertical subgrade coefficient $C_0$ |
+| m0 of tip soil | Proportional coefficient $`m_0`$ of the vertical subgrade coefficient below the tip, 0 uses $`m`$ of the last layer |
+| Rock strength R | Saturated uniaxial compressive strength of the rock at the tip, used to look up the vertical subgrade coefficient $`C_0`$ |
 
-**Soil layers**: enter, from the ground downward, the name, thickness, $m$, unit weight $\gamma$, friction angle $\varphi$, ultimate shaft friction $f$ and the factor $\alpha_i$ for driven piles. The last layer extends to the pile tip. $m$ is used for pile forces and spring stiffness, $\gamma$ and $\varphi$ for the group check, $f$ and $\alpha_i$ for capacity.
+**Soil layers**: enter, from the ground downward, the name, thickness, $`m`$, unit weight $`\gamma`$, friction angle $`\varphi`$, ultimate shaft friction $`f`$ and the factor $`\alpha_i`$ for driven piles. The last layer extends to the pile tip. $`m`$ is used for pile forces and spring stiffness, $`\gamma`$ and $`\varphi`$ for the group check, $`f`$ and $`\alpha_i`$ for capacity.
 
 **Piles and cap**
 
 - The pile table lists the X and Y coordinates of each pile (origin at the center of the cap bottom), **Batter** (angle from the vertical) and **Azimuth** (direction of the lean, measured from +X toward +Y). **Grid…** generates a rectangular array.
-- **Cap type**: high cap (pile tops above the ground) or low cap. A low cap needs the embedment depth $h_n$ and the cap widths in both directions, which are used for the soil resistance on the cap sides.
+- **Cap type**: high cap (pile tops above the ground) or low cap. A low cap needs the embedment depth $`h_n`$ and the cap widths in both directions, which are used for the soil resistance on the cap sides.
 
-**Loads**: $\Sigma N$, $\Sigma P$ and $\Sigma M$ at the center of the cap bottom, and the **Loading direction** (along X or along Y). The elevation (in the plane of the horizontal force) and plan views in the sketch update as you type, with the name of each view below it. The $m$ labels in the elevation mark the proportional coefficient of each layer.
+**Loads**: $`\Sigma N`$, $`\Sigma P`$ and $`\Sigma M`$ at the center of the cap bottom, and the **Loading direction** (along X or along Y). The elevation (in the plane of the horizontal force) and plan views in the sketch update as you type, with the name of each view below it. The $`m`$ labels in the elevation mark the proportional coefficient of each layer.
 
 #### Sign Conventions
 
-- Planar analysis (Pile Forces page): x to the right, y downward. $\Sigma N$ is positive downward, $\Sigma P$ is positive along the loading direction, and $\Sigma M$ is positive in the same sense as $\Sigma P$ (clockwise when the force points right).
-- Cap displacements: $a$ (horizontal), $b$ (vertical, positive downward) and $\beta$ (rotation, positive clockwise).
-- Pile inclination $\varphi$ is positive when the pile bottom leans toward the loading direction. The projected inclination of a batter pile in the loading plane is derived from Batter and Azimuth.
+- Planar analysis (Pile Forces page): x to the right, y downward. $`\Sigma N`$ is positive downward, $`\Sigma P`$ is positive along the loading direction, and $`\Sigma M`$ is positive in the same sense as $`\Sigma P`$ (clockwise when the force points right).
+- Cap displacements: $`a`$ (horizontal), $`b`$ (vertical, positive downward) and $`\beta`$ (rotation, positive clockwise).
+- Pile inclination $`\varphi`$ is positive when the pile bottom leans toward the loading direction. The projected inclination of a batter pile in the loading plane is derived from Batter and Azimuth.
 - Global axes of the Spring Stiffness page: X and Y horizontal, Z upward, right-handed, rotations by the right-hand rule, DOF order UX, UY, UZ, RX, RY, RZ.
 
 ### 12.3 Bearing Capacity
 
 ![Bearing Capacity page](images/22_pile_capacity.png)
 
-**Single pile axial capacity**: choose the calculation method in Method and the page lists the inputs it needs. The pile perimeter $U$ and the base area $A$ come from the pile section (for bored piles $U$ uses the hole diameter increased by Hole enlargement). The layer values $f_i$ and lengths $l_i$ come from the soil layers and the embedded length on the Pile Data page.
+**Single pile axial capacity**: choose the calculation method in Method and the page lists the inputs it needs. The pile perimeter $`U`$ and the base area $`A`$ come from the pile section (for bored piles $`U`$ uses the hole diameter increased by Hole enlargement). The layer values $`f_i`$ and lengths $`l_i`$ come from the soil layers and the embedded length on the Pile Data page.
 
 | Method | Formula |
 | --- | --- |
-| Bored / dug friction pile (Eq. 5-57) | $[P] = \tfrac12 U \sum f_i l_i + m_0 A [\sigma]$ |
-| Driven / vibro-sunk friction pile (Eq. 5-58) | $[P] = \tfrac12 \left( U \sum \alpha_i f_i l_i + \lambda A R \alpha \right)$ |
-| End-bearing pile socketed in rock (Eq. 5-59) | $[P] = R \,(C_1 A + C_2 U h)$, with $C_1$ multiplied by 0.7 and $C_2 = 0$ when $h \le 0.5\ \mathrm{m}$ |
-| Driven end-bearing pile on rock (Eq. 5-60) | $[P] = C R A$, $C = 0.45$ (uniform rock) or 0.3 (cracked or weathered rock) |
-| Friction pile in tension (Eq. 5-61) | $[P'] = 0.3\, U \sum \alpha_i l_i f_i$ |
-| Static load test (Eq. 5-62) | $[P] = P_j / K$ |
-| Static cone penetration (Eq. 5-63 to 5-66) | $[P] = \tfrac12 (U \sum \alpha_i f_i l_i + \lambda A R \alpha)$, $f_i = \beta_i \bar f_{si}$, $R = \beta \bar q_c$ |
-| Pile material and buckling (Eq. 5-67) | $[P] = \varphi\,[\sigma_c]\,(A_c + m A_s')$ |
+| Bored / dug friction pile (Eq. 5-57) | $`[P] = \tfrac12 U \sum f_i l_i + m_0 A [\sigma]`$ |
+| Driven / vibro-sunk friction pile (Eq. 5-58) | $`[P] = \tfrac12 \left( U \sum \alpha_i f_i l_i + \lambda A R \alpha \right)`$ |
+| End-bearing pile socketed in rock (Eq. 5-59) | $`[P] = R \,(C_1 A + C_2 U h)`$, with $`C_1`$ multiplied by 0.7 and $`C_2 = 0`$ when $`h \le 0.5\ \mathrm{m}`$ |
+| Driven end-bearing pile on rock (Eq. 5-60) | $`[P] = C R A`$, $`C = 0.45`$ (uniform rock) or 0.3 (cracked or weathered rock) |
+| Friction pile in tension (Eq. 5-61) | $`[P'] = 0.3\, U \sum \alpha_i l_i f_i`$ |
+| Static load test (Eq. 5-62) | $`[P] = P_j / K`$ |
+| Static cone penetration (Eq. 5-63 to 5-66) | $`[P] = \tfrac12 (U \sum \alpha_i f_i l_i + \lambda A R \alpha)`$, $`f_i = \beta_i \bar f_{si}`$, $`R = \beta \bar q_c`$ |
+| Pile material and buckling (Eq. 5-67) | $`[P] = \varphi\,[\sigma_c]\,(A_c + m A_s')`$ |
 
-The allowable bearing capacity $[\sigma]$ below a bored pile has three ranges of the tip depth: for $h \le 4d$, $[\sigma] = \sigma_0 + k_2 \gamma_2 (h-3)$; for $4d < h \le 10d$, $[\sigma] = \sigma_0 + k_2\gamma_2(4d-3) + k_2'\gamma_2 (h-4d)$; for $h > 10d$, $h-4d$ is replaced by $6d$. In the cone penetration method, $\beta_i$ and $\beta$ come from two groups of formulas in Eqs. (5-65) and (5-66): the first group is used when the mean tip resistance exceeds 2000 kPa and the friction ratio does not exceed 0.014, the second otherwise. For the pile material check, the buckling factor $\varphi$ is interpolated from table 5-15 using the slenderness ratio, which is based on the calculated length of the pile (table 5-16).
+The allowable bearing capacity $`[\sigma]`$ below a bored pile has three ranges of the tip depth: for $`h \le 4d`$, $`[\sigma] = \sigma_0 + k_2 \gamma_2 (h-3)`$; for $`4d < h \le 10d`$, $`[\sigma] = \sigma_0 + k_2\gamma_2(4d-3) + k_2'\gamma_2 (h-4d)`$; for $`h > 10d`$, $`h-4d`$ is replaced by $`6d`$. In the cone penetration method, $`\beta_i`$ and $`\beta`$ come from two groups of formulas in Eqs. (5-65) and (5-66): the first group is used when the mean tip resistance exceeds 2000 kPa and the friction ratio does not exceed 0.014, the second otherwise. For the pile material check, the buckling factor $`\varphi`$ is interpolated from table 5-15 using the slenderness ratio, which is based on the calculated length of the pile (table 5-16).
 
-The result table lists the intermediate values and the final $[P]$. The chart at the lower right shows $[P]$ and its shaft and tip parts against the embedded length, with a red circle at the current embedded length.
+The result table lists the intermediate values and the final $`[P]`$. The chart at the lower right shows $`[P]`$ and its shaft and tip parts against the embedded length, with a red circle at the current embedded length.
 
 **Pile group**
 
-- **Allowable base stress [σ]**: allowable bearing capacity of the soil at the base plane of the group, used for the solid foundation check. When **Estimate the weight of the soil block** is checked, the weight of the cap, soil and piles above the base plane is estimated from the layer unit weights. Uncheck it to enter $G$ directly.
-- Minimum center distance $s$ and $s/d$. Group efficiency $\eta = 1 - \dfrac{\arctan(d/s)}{90^\circ}\cdot\dfrac{(n-1)m + (m-1)n}{mn}$ (Eq. 5-68), where $m$ and $n$ are the number of columns and the piles per column, counted from the distinct X and Y coordinates.
-- When friction piles are closer than $6d$, the base stress is checked with the group as a solid foundation. The base plane extends $h \tan(\bar\varphi/4)$ beyond the outer piles, $\sigma_{\max,\min} = N/A \pm M/W$ (Eq. 5-69), $\bar\varphi$ is the thickness-weighted mean friction angle of the layers (Eq. 5-70), and the base moment is $M = \Sigma M + \Sigma P\,(l_0 + h)$.
-- After the calculation on the Pile Forces page, the page shows the check $N_{\max} \le [P]$.
+- **Allowable base stress [σ]**: allowable bearing capacity of the soil at the base plane of the group, used for the solid foundation check. When **Estimate the weight of the soil block** is checked, the weight of the cap, soil and piles above the base plane is estimated from the layer unit weights. Uncheck it to enter $`G`$ directly.
+- Minimum center distance $`s`$ and $`s/d`$. Group efficiency $`\eta = 1 - \dfrac{\arctan(d/s)}{90^\circ}\cdot\dfrac{(n-1)m + (m-1)n}{mn}`$ (Eq. 5-68), where $`m`$ and $`n`$ are the number of columns and the piles per column, counted from the distinct X and Y coordinates.
+- When friction piles are closer than $`6d`$, the base stress is checked with the group as a solid foundation. The base plane extends $`h \tan(\bar\varphi/4)`$ beyond the outer piles, $`\sigma_{\max,\min} = N/A \pm M/W`$ (Eq. 5-69), $`\bar\varphi`$ is the thickness-weighted mean friction angle of the layers (Eq. 5-70), and the base moment is $`M = \Sigma M + \Sigma P\,(l_0 + h)`$.
+- After the calculation on the Pile Forces page, the page shows the check $`N_{\max} \le [P]`$.
 
 ### 12.4 Pile Forces (m Method)
 
@@ -1248,80 +1248,94 @@ The result table lists the intermediate values and the final $[P]$. The chart at
 
 1. Enter or load the model on the Pile Data page.
 2. Choose how the influence functions are obtained in **Influence functions** (see [section 12.6](#126-the-two-ways-to-get-the-influence-functions)).
-3. Click **Calculate**. The **Parameters** table on the left lists all intermediate parameters. The chart at the upper right shows $M$, $Q$, $x$ and $\sigma_x$ against depth for the selected pile. The three tabs below hold the pile-top forces of each pile, the distribution table and the influence function values at each depth.
+3. Click **Calculate**. The **Parameters** table on the left lists all intermediate parameters. The chart at the upper right shows $`M`$, $`Q`$, $`x`$ and $`\sigma_x`$ against depth for the selected pile. The three tabs below hold the pile-top forces of each pile, the distribution table and the influence function values at each depth.
 4. Use **Pile** to switch the pile, **Depth step** to set the spacing of the distribution table, and **Show the part above the ground** to include the free length in the chart and the table.
 
 #### Calculation Method
 
-**1. Calculation width and deformation factor.** The lateral soil resistance is $\sigma_x = C_y x$ with $C_y = m y$. The calculation width of a pile is
+**1. Calculation width and deformation factor.** The lateral soil resistance is $`\sigma_x = C_y x`$ with $`C_y = m y`$. The calculation width of a pile is
 
-$$
+```math
 b_0 = K_f K_0 d,\qquad K_0 = \begin{cases} 1 + 1/d, & d \ge 1 \\ 1.5 + 0.5/d, & d < 1 \end{cases}
-$$
+```
 
-with $K_f = 0.9$ for circular piles and 1 for rectangular piles. When $n$ piles stand side by side perpendicular to the force, the smaller of $K_f K_0 d$ and $(D'+1)/n$ is used, where $D'$ is the distance between the outer edges of the row. The deformation factor is
+with $`K_f = 0.9`$ for circular piles and 1 for rectangular piles. When $`n`$ piles stand side by side perpendicular to the force, the smaller of $`K_f K_0 d`$ and $`(D'+1)/n`$ is used, where $`D'`$ is the distance between the outer edges of the row. The deformation factor is
 
-$$
+```math
 \alpha = \left( \frac{m\, b_0}{EI} \right)^{1/5},\qquad EI = 0.8\, E_c I
-$$
+```
 
-Layered soil is converted over the depth $h_m$ by equal areas under the subgrade coefficient curve: $\bar m = \sum m_i (z_{b,i}^2 - z_{a,i}^2) / h_m^2$. First assume $\alpha h > 2.5$ and take $h_m = 2(d+1)$, and if that is not satisfied take $h_m = h$. The interaction of piles in front of and behind each other enters through a factor $k$ that multiplies $m$. With $n$ piles in the force direction and a clear spacing $L_0$, $k = C + \dfrac{1-C}{0.6}\dfrac{L_0}{h_0}$ when $L_0 < 0.6 h_0$, otherwise $k = 1$, with $h_0 = 3(d+1)$ and $C = 1,\ 0.6,\ 0.5,\ 0.45$ for $n = 1,\ 2,\ 3,\ \ge 4$.
+Layered soil is converted over the depth $`h_m`$ by equal areas under the subgrade coefficient curve: $`\bar m = \sum m_i (z_{b,i}^2 - z_{a,i}^2) / h_m^2`$. First assume $`\alpha h > 2.5`$ and take $`h_m = 2(d+1)`$, and if that is not satisfied take $`h_m = h`$. The interaction of piles in front of and behind each other enters through a factor $`k`$ that multiplies $`m`$. With $`n`$ piles in the force direction and a clear spacing $`L_0`$, $`k = C + \dfrac{1-C}{0.6}\dfrac{L_0}{h_0}`$ when $`L_0 < 0.6 h_0`$, otherwise $`k = 1`$, with $`h_0 = 3(d+1)`$ and $`C = 1,\ 0.6,\ 0.5,\ 0.45`$ for $`n = 1,\ 2,\ 3,\ \ge 4`$.
 
-**2. Initial parameter solution.** With $t = \alpha y$ the deflection equation becomes $x'''' = -t\,x$. At depth $y$ the displacement, rotation, moment and shear are
+**2. Initial parameter solution.** With $`t = \alpha y`$ the deflection equation becomes $`x'''' = -t\,x`$. At depth $`y`$ the displacement, rotation, moment and shear are
 
-$$
+```math
 \begin{aligned}
-x_y &= x_0 A_1 + \tfrac{\varphi_0}{\alpha} B_1 + \tfrac{M_0}{\alpha^2 EI} C_1 + \tfrac{Q_0}{\alpha^3 EI} D_1 \\
-\tfrac{\varphi_y}{\alpha} &= x_0 A_2 + \tfrac{\varphi_0}{\alpha} B_2 + \tfrac{M_0}{\alpha^2 EI} C_2 + \tfrac{Q_0}{\alpha^3 EI} D_2 \\
-\tfrac{M_y}{\alpha^2 EI} &= x_0 A_3 + \tfrac{\varphi_0}{\alpha} B_3 + \tfrac{M_0}{\alpha^2 EI} C_3 + \tfrac{Q_0}{\alpha^3 EI} D_3 \\
-\tfrac{Q_y}{\alpha^3 EI} &= x_0 A_4 + \tfrac{\varphi_0}{\alpha} B_4 + \tfrac{M_0}{\alpha^2 EI} C_4 + \tfrac{Q_0}{\alpha^3 EI} D_4
+x_y &= x_0 A_1 + \tfrac{\varphi_0}{\alpha} B_1 + \tfrac{M_0}{\alpha^2 EI} C_1 + \tfrac{Q_0}{\alpha^3 EI} D_1
+\\ \tfrac{\varphi_y}{\alpha} &= x_0 A_2 + \tfrac{\varphi_0}{\alpha} B_2 + \tfrac{M_0}{\alpha^2 EI} C_2 + \tfrac{Q_0}{\alpha^3 EI} D_2
+\\ \tfrac{M_y}{\alpha^2 EI} &= x_0 A_3 + \tfrac{\varphi_0}{\alpha} B_3 + \tfrac{M_0}{\alpha^2 EI} C_3 + \tfrac{Q_0}{\alpha^3 EI} D_3
+\\ \tfrac{Q_y}{\alpha^3 EI} &= x_0 A_4 + \tfrac{\varphi_0}{\alpha} B_4 + \tfrac{M_0}{\alpha^2 EI} C_4 + \tfrac{Q_0}{\alpha^3 EI} D_4
 \end{aligned}
-$$
+```
 
-$x_0$ and $\varphi_0$ at the ground ($y = 0$) follow from the boundary condition at the pile tip. For a tip in soil or on the rock surface, the shear at the tip is zero and the moment equals the resisting moment of the soil at the tip, $-C_0 \varphi_h I_0$ (written with $K_h = C_0 I_0 / (\alpha EI)$). For a tip embedded in rock, the displacement and rotation at the tip are zero. $K_h$ is taken as 0 when $\alpha h \ge 2.5$ (3.5 on the rock surface), and $\bar h = \alpha h$ is limited to 4. This gives the flexibilities at the ground, $\delta_{QQ}$, $\delta_{MQ} = \delta_{QM}$ and $\delta_{MM}$, with
+$`x_0`$ and $`\varphi_0`$ at the ground ($`y = 0`$) follow from the boundary condition at the pile tip. For a tip in soil or on the rock surface, the shear at the tip is zero and the moment equals the resisting moment of the soil at the tip, $`-C_0 \varphi_h I_0`$ (written with $`K_h = C_0 I_0 / (\alpha EI)`$). For a tip embedded in rock, the displacement and rotation at the tip are zero. $`K_h`$ is taken as 0 when $`\alpha h \ge 2.5`$ (3.5 on the rock surface), and $`\bar h = \alpha h`$ is limited to 4. This gives the flexibilities at the ground, $`\delta_{QQ}`$, $`\delta_{MQ} = \delta_{QM}`$ and $`\delta_{MM}`$, with
 
-$$
+```math
 x_0 = Q_0 \delta_{QQ} + M_0 \delta_{QM},\qquad \varphi_0 = -(Q_0 \delta_{MQ} + M_0 \delta_{MM})
-$$
+```
 
-**3. Pile-top stiffness coefficients.** With the pile top $l_0$ above the ground, the pile-top flexibilities are
+**3. Pile-top stiffness coefficients.** With the pile top $`l_0`$ above the ground, the pile-top flexibilities are
 
-$$
+```math
 \delta_1 = \frac{l_0^3}{3EI} + \delta_{MM} l_0^2 + 2\delta_{MQ} l_0 + \delta_{QQ},\quad
 \delta_2 = \frac{l_0}{EI} + \delta_{MM},\quad
 \delta_3 = \frac{l_0^2}{2EI} + \delta_{MM} l_0 + \delta_{MQ}
-$$
+```
 
-With $\Delta = \delta_1 \delta_2 - \delta_3^2$, $\rho_2 = \delta_2/\Delta$, $\rho_3 = \delta_3/\Delta$ and $\rho_4 = \delta_1/\Delta$. The axial stiffness coefficient is
+With $`\Delta = \delta_1 \delta_2 - \delta_3^2`$, $`\rho_2 = \delta_2/\Delta`$, $`\rho_3 = \delta_3/\Delta`$ and $`\rho_4 = \delta_1/\Delta`$. The axial stiffness coefficient is
 
-$$
+```math
 \rho_1 = \frac{1}{\dfrac{l_0 + \xi h}{EA} + \dfrac{1}{C_0 A_0}}
-$$
+```
 
-with $\xi = 1$ for end-bearing piles, 1/2 for bored friction piles and 2/3 for driven friction piles. The vertical subgrade coefficient $C_0$ at the tip comes from table 5-2 by interpolation on the saturated uniaxial strength $R$ for rock ($3 \times 10^5$ kPa/m for $R \le 1000$ kPa and $1.5 \times 10^7$ kPa/m for $R \ge 25000$ kPa), and is $10 m_0$ for soil with $h \le 10$ m and $m_0 h$ for $h > 10$ m. The base area $A_0$ is the section area for end-bearing piles. For friction piles the load spreads from the pile sides downward at $\bar\varphi/4$ to the tip, limited by the area from the pile spacing.
+with $`\xi = 1`$ for end-bearing piles, 1/2 for bored friction piles and 2/3 for driven friction piles. The vertical subgrade coefficient $`C_0`$ at the tip comes from table 5-2 by interpolation on the saturated uniaxial strength $`R`$ for rock ($`3 \times 10^5`$ kPa/m for $`R \le 1000`$ kPa and $`1.5 \times 10^7`$ kPa/m for $`R \ge 25000`$ kPa), and is $`10 m_0`$ for soil with $`h \le 10`$ m and $`m_0 h`$ for $`h > 10`$ m. The base area $`A_0`$ is the section area for end-bearing piles. For friction piles the load spreads from the pile sides downward at $`\bar\varphi/4`$ to the tip, limited by the area from the pile spacing.
 
-**4. Displacement method for pile groups.** The cap is rigid. The cap displacements $(a, b, \beta)$ and the loads $(\Sigma P, \Sigma N, \Sigma M)$ satisfy $\mathbf{K}\,(a, b, \beta)^{\mathrm T} = (\Sigma P, \Sigma N, \Sigma M)^{\mathrm T}$. The stiffness matrix of one pile in its own axis frame is
+**4. Displacement method for pile groups.** The cap is rigid. The cap displacements $`(a, b, \beta)`$ and the loads $`(\Sigma P, \Sigma N, \Sigma M)`$ satisfy $`\mathbf{K}\,(a, b, \beta)^{\mathrm T} = (\Sigma P, \Sigma N, \Sigma M)^{\mathrm T}`$. The stiffness matrix of one pile in its own axis frame is
 
-$$
+```math
 \mathbf{K}'_i = \begin{bmatrix} \rho_2 & 0 & -\rho_3 \\ 0 & \rho_1 & 0 \\ -\rho_3 & 0 & \rho_4 \end{bmatrix}
-$$
+```
 
-and is transformed with $\mathbf{T}_i = \begin{bmatrix} \cos\varphi & -\sin\varphi & -x_i\sin\varphi \\ \sin\varphi & \cos\varphi & x_i\cos\varphi \\ 0 & 0 & 1 \end{bmatrix}$ and summed, $\mathbf{K} = \sum \mathbf{T}_i^{\mathrm T} \mathbf{K}'_i \mathbf{T}_i$ (for a high cap this agrees with the closed form of Eq. 5-35). A low cap adds the soil resistance on the cap sides through $b_0 A_c$, $b_0 S_c$ and $b_0 I_c$, with $A_c = C_n h_n/2$, $S_c = C_n h_n^2/6$, $I_c = C_n h_n^3/12$ and $C_n = m h_n$, where $b_0$ is the cap width perpendicular to the loading direction.
+Transform each pile stiffness matrix to the global coordinate system, then sum the results.
 
-**5. Pile-top forces and distribution along the pile.** After solving for $(a, b, \beta)$, the pile-top displacements of pile $i$ in the pile axis frame are $a' = a\cos\varphi - (b + x\beta)\sin\varphi$ and $b' = a\sin\varphi + (b + x\beta)\cos\varphi$, and the forces are
+```math
+\mathbf{T}_i = \begin{bmatrix}
+\cos\varphi & -\sin\varphi & -x_i\sin\varphi
+\\ \sin\varphi & \cos\varphi & x_i\cos\varphi
+\\ 0 & 0 & 1
+\end{bmatrix}
+```
 
-$$
+```math
+\mathbf{K} = \sum \mathbf{T}_i^{\mathrm T} \mathbf{K}'_i \mathbf{T}_i
+```
+
+For a high cap, the result agrees with the closed form of Eq. 5-35. A low cap adds the soil resistance on the cap sides through $`b_0 A_c`$, $`b_0 S_c`$ and $`b_0 I_c`$, with $`A_c = C_n h_n/2`$, $`S_c = C_n h_n^2/6`$, $`I_c = C_n h_n^3/12`$ and $`C_n = m h_n`$, where $`b_0`$ is the cap width perpendicular to the loading direction.
+
+**5. Pile-top forces and distribution along the pile.** After solving for $`(a, b, \beta)`$, the pile-top displacements of pile $`i`$ in the pile axis frame are $`a' = a\cos\varphi - (b + x\beta)\sin\varphi`$ and $`b' = a\sin\varphi + (b + x\beta)\cos\varphi`$, and the forces are
+
+```math
 Q' = \rho_2 a' - \rho_3 \beta,\qquad N' = \rho_1 b',\qquad M' = -\rho_3 a' + \rho_4 \beta
-$$
+```
 
-which are transformed back to $N$ and $Q$ in the structural frame. At the ground, $Q_0 = Q'$ and $M_0 = M' + Q'\, l_0/\cos\varphi$. Putting them into the initial parameter solution gives $x$, $\varphi$, $M$ and $Q$ along the pile. The soil resistance is $\sigma_x = m k\, y\, x$. The distribution is evaluated down to $\min(h,\ 4/\alpha)$, below which the forces can be taken as zero.
+which are transformed back to $`N`$ and $`Q`$ in the structural frame. At the ground, $`Q_0 = Q'`$ and $`M_0 = M' + Q'\, l_0/\cos\varphi`$. Putting them into the initial parameter solution gives $`x`$, $`\varphi`$, $`M`$ and $`Q`$ along the pile. The soil resistance is $`\sigma_x = m k\, y\, x`$. The distribution is evaluated down to $`\min(h,\ 4/\alpha)`$, below which the forces can be taken as zero.
 
 #### Output
 
-- **Parameters**: $b_0$, $n$, $L_0$, $k$, $\bar m$, $h_m$, $EI$, $EA$, $\alpha$, $\alpha h$, $C_0$, $A_0$, $K_h$, the flexibilities $\delta$, the stiffness coefficients $\rho_1 \sim \rho_4$, the group stiffness terms $\gamma_{aa}$ and so on, and the cap displacements $a$, $b$ and $\beta$.
-- **Pile-top forces**: coordinates, inclination, $N$, $Q$, $M$, pile-top displacement and rotation, and $Q_0$ and $M_0$ at the ground for every pile.
-- **Distribution**: depth, $\alpha y$, $x$, $\varphi$, $M$, $Q$ and $\sigma_x$. The part above the ground is listed at negative depth and only $M$ and $Q$ have values there.
-- **Influence functions**: the sixteen values $A_1 \sim D_4$ at each depth, for comparison with hand calculations.
+- **Parameters**: $`b_0`$, $`n`$, $`L_0`$, $`k`$, $`\bar m`$, $`h_m`$, $`EI`$, $`EA`$, $`\alpha`$, $`\alpha h`$, $`C_0`$, $`A_0`$, $`K_h`$, the flexibilities $`\delta`$, the stiffness coefficients $`\rho_1 \sim \rho_4`$, the group stiffness terms $`\gamma_{aa}`$ and so on, and the cap displacements $`a`$, $`b`$ and $`\beta`$.
+- **Pile-top forces**: coordinates, inclination, $`N`$, $`Q`$, $`M`$, pile-top displacement and rotation, and $`Q_0`$ and $`M_0`$ at the ground for every pile.
+- **Distribution**: depth, $`\alpha y`$, $`x`$, $`\varphi`$, $`M`$, $`Q`$ and $`\sigma_x`$. The part above the ground is listed at negative depth and only $`M`$ and $`Q`$ have values there.
+- **Influence functions**: the sixteen values $`A_1 \sim D_4`$ at each depth, for comparison with hand calculations.
 
 ### 12.5 Spring Stiffness
 
@@ -1335,8 +1349,8 @@ This page prepares two kinds of data for a finite element model: the six-DOF sti
 
 Method:
 
-1. For each pile, the m-method parameters are taken once with the X direction and once with the Y direction as the loading direction, giving $\rho_1 \sim \rho_4$ for both. In the pile-head matrix of a vertical pile, $k_{UZ} = \rho_1$, $k_{UX} = k_{UY} = \rho_2$, $k_{RX} = k_{RY} = \rho_4$, and the coupling terms are $k_{UX,RY} = -\rho_3$ and $k_{UY,RX} = +\rho_3$. A batter pile is first built in its axis frame and then transformed to the global axes with Batter and Azimuth.
-2. The torsional stiffness about the pile axis is $k_{RZ} = G J / (l_0 + L_t)$, with $G = E_c/[2(1+\nu)]$, the torsion constant $J$ of the section ($\pi d^4/32$ for a circle) and the effective embedded length $L_t = \min(h,\ 2/\alpha)$. **The code and the sources used give no torsional stiffness, so this term is an assumption of the program** and serves only as an estimate.
+1. For each pile, the m-method parameters are taken once with the X direction and once with the Y direction as the loading direction, giving $`\rho_1 \sim \rho_4`$ for both. In the pile-head matrix of a vertical pile, $`k_{UZ} = \rho_1`$, $`k_{UX} = k_{UY} = \rho_2`$, $`k_{RX} = k_{RY} = \rho_4`$, and the coupling terms are $`k_{UX,RY} = -\rho_3`$ and $`k_{UY,RX} = +\rho_3`$. A batter pile is first built in its axis frame and then transformed to the global axes with Batter and Azimuth.
+2. The torsional stiffness about the pile axis is $`k_{RZ} = G J / (l_0 + L_t)`$, with $`G = E_c/[2(1+\nu)]`$, the torsion constant $`J`$ of the section ($`\pi d^4/32`$ for a circle) and the effective embedded length $`L_t = \min(h,\ 2/\alpha)`$. **The code and the sources used give no torsional stiffness, so this term is an assumption of the program** and serves only as an estimate.
 3. The pile-head matrices are moved to the cap center with a rigid link matrix and summed. For a low cap, the terms for the soil resistance on the cap sides are added when **Include the soil resistance on the cap sides** is checked.
 
 #### Shaft, Side and Tip Springs
@@ -1345,13 +1359,13 @@ The embedded length is divided into elements by **Element length** (an element n
 
 | Spring | Value |
 | --- | --- |
-| Lateral side spring $k_h$ (X and Y) | $k_h = m\, z\, k\, b_0\, \Delta l$, with node depth $z$, tributary length $\Delta l$, $m$ of the layer the node belongs to, and the group factor $k$ (applied only when **Apply the group factor k to the lateral springs** is checked, never for a single pile) |
-| Vertical side spring $k_v$ | $k_v = f\, U\, \Delta l / s$, with the ultimate shaft friction $f$ of the layer, the pile perimeter $U$, and $s$ from **Friction mobilization displacement**, the relative displacement at which the ultimate friction is fully mobilized |
-| Axial spring of the shaft | $EA/\Delta l$ |
-| Vertical tip spring | $C_0 A_0$ |
-| Rotational tip spring | $C_0 I_0$, with $I_0$ the moment of inertia of the pile section |
+| Lateral side spring $`k_h`$ (X and Y) | $`k_h = m\, z\, k\, b_0\, \Delta l`$, with node depth $`z`$, tributary length $`\Delta l`$, $`m`$ of the layer the node belongs to, and the group factor $`k`$ (applied only when **Apply the group factor k to the lateral springs** is checked, never for a single pile) |
+| Vertical side spring $`k_v`$ | $`k_v = f\, U\, \Delta l / s`$, with the ultimate shaft friction $`f`$ of the layer, the pile perimeter $`U`$, and $`s`$ from **Friction mobilization displacement**, the relative displacement at which the ultimate friction is fully mobilized |
+| Axial spring of the shaft | $`EA/\Delta l`$ |
+| Vertical tip spring | $`C_0 A_0`$ |
+| Rotational tip spring | $`C_0 I_0`$, with $`I_0`$ the moment of inertia of the pile section |
 
-**The friction mobilization displacement $s$ is an assumption.** The default is 6 mm and the usual range is 4 to 10 mm. The code does not give it, so adjust it to the ground conditions and pile test results. The springs are secant stiffnesses to be used as linear. In the chart, the left plot shows the X and Y lateral springs against depth and the right plot shows the vertical springs. The **Side springs** tab lists the depth, layer, $m$, $C_y$, $k_h$, $k_v$, shaft stiffness and ultimate friction of each node, and the **Shaft and tip** tab lists $EA$, $EI$, $GJ$, the tip springs and totals.
+**The friction mobilization displacement $`s`$ is an assumption.** The default is 6 mm and the usual range is 4 to 10 mm. The code does not give it, so adjust it to the ground conditions and pile test results. The springs are secant stiffnesses to be used as linear. In the chart, the left plot shows the X and Y lateral springs against depth and the right plot shows the vertical springs. The **Side springs** tab lists the depth, layer, $`m`$, $`C_y`$, $`k_h`$, $`k_v`$, shaft stiffness and ultimate friction of each node, and the **Shaft and tip** tab lists $`EA`$, $`EI`$, $`GJ`$, the tip springs and totals.
 
 > When the six-DOF matrix is used in a finite element model, make sure the axes of the modeling software agree with those of this page (Z upward). Under vertical compression the pile top moves down, which is a negative UZ. Software with other axis and rotation definitions needs a transformation first.
 
@@ -1359,8 +1373,8 @@ The embedded length is divided into elements by **Element length** (an element n
 
 The Pile Forces and Spring Stiffness pages both provide the **Influence functions** option:
 
-- **Direct calculation (power series)**: solves $x'''' = -t\,x$ directly as a power series $x = \sum a_n t^n$ with the recurrence $a_{n+4} = -a_{n-1} / [(n+1)(n+2)(n+3)(n+4)]$ and $a_4 = 0$. The four sets of initial values give $A_1 \sim D_1$, and differentiation gives $A_2 \sim D_4$. The series converges in double precision and has no interpolation error from the table spacing. Both methods limit $\bar h$ to 4, as the book specifies.
-- **Table lookup (linear interpolation)**: looks up the table in appendix B of the book ($\bar h = 0 \sim 4.0$, 28 rows) and interpolates linearly. $\bar h > 4$ is treated as 4. This suits comparison with hand calculations and the examples.
+- **Direct calculation (power series)**: solves $`x'''' = -t\,x`$ directly as a power series $`x = \sum a_n t^n`$ with the recurrence $`a_{n+4} = -a_{n-1} / [(n+1)(n+2)(n+3)(n+4)]`$ and $`a_4 = 0`$. The four sets of initial values give $`A_1 \sim D_1`$, and differentiation gives $`A_2 \sim D_4`$. The series converges in double precision and has no interpolation error from the table spacing. Both methods limit $`\bar h`$ to 4, as the book specifies.
+- **Table lookup (linear interpolation)**: looks up the table in appendix B of the book ($`\bar h = 0 \sim 4.0`$, 28 rows) and interpolates linearly. $`\bar h > 4`$ is treated as 4. This suits comparison with hand calculations and the examples.
 
 The two methods differ by no more than 0.1 % in the examples. Direct calculation is the default. Switch to table lookup when you need to compare with appendix B or a hand calculation.
 
@@ -1370,14 +1384,14 @@ The two examples can be loaded with **Load an example** on the Pile Data page. T
 
 | Item | Hand calculation | Program |
 | --- | --- | --- |
-| Example 1: $\alpha$ | 0.4232 | 0.4232 |
-| $\delta_{QQ}$, $\delta_{MQ}$, $\delta_{MM}$ | $3.039\times10^{-5}$, $0.8566\times10^{-5}$, $0.3907\times10^{-5}$ | $3.036\times10^{-5}$, $0.8535\times10^{-5}$, $0.3901\times10^{-5}$ |
-| $x_0$ (m), $\varphi_0$ (rad) | 0.004603, -0.001835 | 0.004590, -0.001831 |
+| Example 1: $`\alpha`$ | 0.4232 | 0.4232 |
+| $`\delta_{QQ}`$, $`\delta_{MQ}`$, $`\delta_{MM}`$ | $`3.039\times10^{-5}`$, $`0.8566\times10^{-5}`$, $`0.3907\times10^{-5}`$ | $`3.036\times10^{-5}`$, $`0.8535\times10^{-5}`$, $`0.3901\times10^{-5}`$ |
+| $`x_0`$ (m), $`\varphi_0`$ (rad) | 0.004603, -0.001835 | 0.004590, -0.001831 |
 | Maximum moment (kN·m) | 407.6 (near 1.4 m) | 407.5 (near 1.4 m) |
-| Example 2: $\alpha$, $k$ | 0.4036 ($\alpha h = 7.67$), 0.789 | 0.4036, 0.789 |
-| $\rho_1$, $\rho_2$, $\rho_3$, $\rho_4$ | $8.66\times10^{5}$, $0.357\times10^{5}$, $1.162\times10^{5}$, $5.459\times10^{5}$ | $8.657\times10^{5}$, $0.356\times10^{5}$, $1.158\times10^{5}$, $5.441\times10^{5}$ |
-| Cap displacement $a$ (cm), $\beta$ (rad) | 0.2539, $36.04\times10^{-5}$ | 0.2544, $36.05\times10^{-5}$ |
-| $N_{\max}$, $N_{\min}$, $Q$, $M$ | 1432.4, 590.6, 48.76, -98.29 | 1432.9, 590.1, 48.75, -98.33 |
+| Example 2: $`\alpha`$, $`k`$ | 0.4036 ($`\alpha h = 7.67`$), 0.789 | 0.4036, 0.789 |
+| $`\rho_1`$, $`\rho_2`$, $`\rho_3`$, $`\rho_4`$ | $`8.66\times10^{5}`$, $`0.357\times10^{5}`$, $`1.162\times10^{5}`$, $`5.459\times10^{5}`$ | $`8.657\times10^{5}`$, $`0.356\times10^{5}`$, $`1.158\times10^{5}`$, $`5.441\times10^{5}`$ |
+| Cap displacement $`a`$ (cm), $`\beta`$ (rad) | 0.2539, $`36.04\times10^{-5}`$ | 0.2544, $`36.05\times10^{-5}`$ |
+| $`N_{\max}`$, $`N_{\min}`$, $`Q`$, $`M`$ | 1432.4, 590.6, 48.76, -98.29 | 1432.9, 590.1, 48.75, -98.33 |
 
 The differences come from the rounding of intermediate values in the hand calculation.
 
@@ -1403,9 +1417,9 @@ The report cannot be exported when the input is invalid (for example a zero laye
 
 - The m method treats the soil beside the pile as an elastic foundation whose stiffness grows linearly with depth. It suits the service state with small horizontal pile-top displacements and cannot represent soil nonlinearity or the ultimate state.
 - Batter piles and rectangular piles are treated in a simplified way. The m-method parameters of a batter pile follow those of a vertical pile and the inclination only enters the planar transformation. The calculation width and the moment of inertia of a rectangular pile are taken in the loading direction.
-- The torsional stiffness and the friction mobilization displacement $s$ are assumptions of the program and not part of the code or the sources used.
+- The torsional stiffness and the friction mobilization displacement $`s`$ are assumptions of the program and not part of the code or the sources used.
 - The axial capacity formulas and parameter tables come from the older railway bridge foundation code (《铁路桥涵地基和基础设计规范》, TB 10002.5-2005). Values and format may differ from the current code, so check them before use.
-- The program checks $N_{\max} \le [P]$ but does not check reinforcement or crack width of the pile section, nor special calculations such as liquefaction or soil resistance reduction under earthquake action.
+- The program checks $`N_{\max} \le [P]`$ but does not check reinforcement or crack width of the pile section, nor special calculations such as liquefaction or soil resistance reduction under earthquake action.
 
 ---
 
@@ -1567,7 +1581,7 @@ The program extends the canvas to include all content during export. If the resu
 Click the collapse button (») of the sidebar; the narrow rail gives about 150 pixels more width to the result area.
 
 **Q11: The peak load changes a lot after the correction, or the result looks unreasonable.**
-Check the units of the geometry parameters (lengths are entered in the current display unit), the sign of the vertical force (compression positive) and whether the selected loading setup matches the test. When the vertical force is large compared with the horizontal force and the loading height $L$ is small, the $P\Delta/L$ correction becomes large.
+Check the units of the geometry parameters (lengths are entered in the current display unit), the sign of the vertical force (compression positive) and whether the selected loading setup matches the test. When the vertical force is large compared with the horizontal force and the loading height $`L`$ is small, the $`P\Delta/L`$ correction becomes large.
 
 **Q12: The vertical and horizontal curves have different displacement precision. How are they aligned?**
 No preprocessing is needed. Select Force-displacement as Source and import the vertical force–displacement curve; the program fuses the curves by cumulative displacement path (see [Section 10.4](#104-fusing-the-vertical-force-with-the-horizontal-curve)). With only a vertical force time history, select Time history, which aligns by point index.
@@ -1576,12 +1590,12 @@ No preprocessing is needed. Select Force-displacement as Source and import the v
 Check the marked regions in the time histories at the lower right, then adjust Flatness tolerance and Minimum length (see [Section 11.2](#112-detection-and-removal)); you can also uncheck individual segments that should be kept.
 
 **Q14: A pile page reports a failed calculation or shows no result after Calculate.**
-Check the inputs on the Pile Data page first (for example, layer thickness and $m$ must be greater than zero and at least one pile is required). The red text at the top of the page gives the reason.
+Check the inputs on the Pile Data page first (for example, layer thickness and $`m`$ must be greater than zero and at least one pile is required). The red text at the top of the page gives the reason.
 
 **Q15: Pile Forces differs slightly from the hand-calculated examples.**
 The hand calculation uses rounded intermediate values. The difference is usually 0.1 % to 0.5 %. Choose Direct calculation to rule out the interpolation of the table.
 
-**Q16: The Bearing Capacity page has no $N_{\max}$ check row.**
+**Q16: The Bearing Capacity page has no $`N_{\max}`$ check row.**
 Click Calculate on the Pile Forces page first. Any change on the Pile Data page clears that result.
 
 ---
@@ -1625,14 +1639,14 @@ Click Calculate on the Pile Forces page first. Any change on the Pile Data page 
 
 | Quantity | Internal / output unit | Note |
 | --- | --- | --- |
-| Ground motion acceleration | g | Converted from Unit on import, $g = 9.80665\ \mathrm{m/s^2}$ |
+| Ground motion acceleration | g | Converted from Unit on import, $`g = 9.80665\ \mathrm{m/s^2}`$ |
 | Velocity, displacement (parameters, spectra) | cm/s, cm | Integrated from acceleration |
 | SA, PSA | g | |
 | SV, PSV | cm/s | |
 | SD | cm | |
 | Code response spectrum | g | Period in s |
-| Hysteresis displacement | mm internally; displayed in mm/cm/m/in | $1\ \mathrm{in} = 25.4\ \mathrm{mm}$ |
-| Hysteresis force | kN internally; displayed in N/kN/kip | $1\ \mathrm{kip} = 4.4482\ \mathrm{kN}$ |
+| Hysteresis displacement | mm internally; displayed in mm/cm/m/in | $`1\ \mathrm{in} = 25.4\ \mathrm{mm}`$ |
+| Hysteresis force | kN internally; displayed in N/kN/kip | $`1\ \mathrm{kip} = 4.4482\ \mathrm{kN}`$ |
 | Stiffness | force unit/displacement unit | e.g. kN/mm |
 | Loop area (energy) | force unit·displacement unit | e.g. kN·mm |
 | Pile foundation: force, length, stress | kN, m, kPa | Cap displacement in m (shown in mm in tables), rotation in rad |
