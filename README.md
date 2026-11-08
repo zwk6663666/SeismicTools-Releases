@@ -1,5 +1,7 @@
 # Seismic Tools
 
+**简体中文** | [English](README.en.md)
+
 面向结构抗震研究的桌面工具（PySide6 + Matplotlib），涵盖动力分析与拟静力试验数据处理。
 
 ![Seismic Tools 主界面](docs/images/03_wave_spectrum.png)
@@ -27,6 +29,8 @@
 ## 文档与界面语言
 
 程序内置用户手册，支持中英文界面切换。
+
+[中文用户手册](docs/user_guide.md) | [English User Guide](docs/user_guide_en.md)
 
 ## 其他版本
 
